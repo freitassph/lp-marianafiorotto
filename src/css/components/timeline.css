@@ -1,0 +1,84 @@
+/* ══════════════════════════════════════════════
+   TIMELINE COMPONENT (Abordagem)
+   ══════════════════════════════════════════════ */
+
+.timeline {
+    position: relative;
+    padding: var(--space-7) 0;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Central line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom,
+            transparent,
+            var(--color-beige-500) 10%,
+            var(--color-beige-500) 90%,
+            transparent);
+    transform: translateX(-50%);
+}
+
+.timeline__item {
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+    padding-right: var(--space-9);
+    padding-bottom: var(--space-10);
+    position: relative;
+}
+
+.timeline__item:nth-child(even) {
+    justify-content: flex-start;
+    margin-left: 50%;
+    padding-left: var(--space-9);
+    padding-right: 0;
+}
+
+/* Connector dot */
+.timeline__item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: var(--radius-full);
+    background: var(--color-gold-600);
+    border: 3px solid var(--bg-primary);
+    /* matches background */
+    top: 10px;
+    right: -8px;
+    z-index: 1;
+}
+
+.timeline__item:nth-child(even)::after {
+    left: -8px;
+    right: auto;
+}
+
+/* Mobile — single column */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline__item,
+    .timeline__item:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding-left: var(--space-10);
+        padding-right: 0;
+        justify-content: flex-start;
+    }
+
+    .timeline__item::after,
+    .timeline__item:nth-child(even)::after {
+        left: 12px;
+        right: auto;
+    }
+}

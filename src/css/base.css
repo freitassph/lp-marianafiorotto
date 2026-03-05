@@ -1,0 +1,95 @@
+/* ══════════════════════════════════════════════
+   BASE & TYPOGRAPHY
+   ══════════════════════════════════════════════ */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--navbar-height);
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-body-size);
+    font-weight: var(--text-body-weight);
+    line-height: var(--text-body-line-height);
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Typography Base */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--color-gold-600);
+    margin-bottom: var(--space-4);
+}
+
+h1 {
+    font-family: var(--font-display);
+    font-size: var(--text-h1-size);
+    font-weight: var(--text-h1-weight);
+    line-height: var(--text-h1-line-height);
+    letter-spacing: var(--text-h1-letter-spacing);
+}
+
+h2 {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-size);
+    font-weight: var(--text-h2-weight);
+    line-height: var(--text-h2-line-height);
+    letter-spacing: var(--text-h2-letter-spacing);
+}
+
+h3 {
+    font-size: var(--text-h3-size);
+    font-weight: var(--text-h3-weight);
+    line-height: var(--text-h3-line-height);
+    letter-spacing: var(--text-h3-letter-spacing);
+}
+
+h4 {
+    font-size: var(--text-h4-size);
+    font-weight: var(--text-h4-weight);
+    line-height: var(--text-h4-line-height);
+    letter-spacing: var(--text-h4-letter-spacing);
+}
+
+p {
+    margin-bottom: var(--space-4);
+}
+
+a {
+    color: var(--text-link);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--text-link-hover);
+}
+
+strong {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Global Grain Texture Overlay */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.025;
+    mix-blend-mode: overlay;
+    /* Utilizaremos um svg de noise genérico gerado localmente */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}

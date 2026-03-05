@@ -1,0 +1,79 @@
+/* ══════════════════════════════════════════════
+   ACCORDION COMPONENT (FAQ e Especialidades)
+   ══════════════════════════════════════════════ */
+
+.accordion {
+    max-width: var(--content-narrow);
+    margin: 0 auto;
+    border-top: 1px solid var(--border-default);
+}
+
+.accordion__item {
+    border-bottom: 1px solid var(--border-default);
+    overflow: hidden;
+}
+
+.accordion__trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-6) 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: var(--text-h4-size);
+    font-weight: var(--text-h4-weight);
+    color: var(--text-primary);
+    /* Primary text for questions */
+    transition: color var(--transition-base);
+}
+
+.accordion__trigger:hover {
+    color: var(--color-gold-600);
+}
+
+.accordion__item.is-open .accordion__trigger {
+    color: var(--color-gold-600);
+}
+
+.accordion__icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-gold-600);
+    transition: transform var(--transition-smooth);
+    flex-shrink: 0;
+    margin-left: var(--space-4);
+}
+
+.accordion__item.is-open .accordion__icon {
+    transform: rotate(45deg);
+}
+
+.accordion__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-smooth),
+        padding var(--transition-smooth),
+        opacity var(--transition-base);
+    opacity: 0;
+}
+
+.accordion__item.is-open .accordion__content {
+    max-height: 500px;
+    padding-bottom: var(--space-6);
+    opacity: 1;
+}
+
+.accordion__content p {
+    font-family: var(--font-body);
+    font-size: var(--text-body-size);
+    color: var(--text-secondary);
+    line-height: var(--text-body-line-height);
+}
+
+.accordion__content p:last-child {
+    margin-bottom: 0;
+}

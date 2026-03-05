@@ -1,0 +1,100 @@
+/* ══════════════════════════════════════════════
+   ABOUT SECTION
+   ══════════════════════════════════════════════ */
+
+.about {
+    background: var(--bg-primary);
+}
+
+.about__image-wrapper {
+    position: relative;
+    border-radius: var(--radius-2xl) var(--radius-full) var(--radius-3xl) var(--radius-md);
+    /* Organic shape */
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    aspect-ratio: 4/5;
+}
+
+.about__image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.about__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slowest);
+}
+
+.about__image-wrapper:hover .about__image {
+    transform: scale(1.03);
+}
+
+.about__content {
+    padding-left: var(--space-6);
+}
+
+.about__bio {
+    font-family: var(--font-body);
+    font-size: 1.063rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    margin-bottom: var(--space-6);
+}
+
+/* Timeline formativa dentro da secao About */
+.about__formation {
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-8);
+    border-left: 2px solid var(--divider-beige);
+    padding-left: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.about__formation-item {
+    position: relative;
+}
+
+.about__formation-item::before {
+    content: '';
+    position: absolute;
+    left: calc(var(--space-5) * -1 - 6px);
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-gold-600);
+    border: 2px solid var(--bg-primary);
+}
+
+.about__formation-year {
+    font-family: var(--font-body);
+    font-size: var(--text-caption-size);
+    font-weight: 700;
+    color: var(--color-beige-500);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: var(--space-1);
+}
+
+.about__formation-desc {
+    font-size: var(--text-body-sm-size);
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+    .about__content {
+        padding-left: 0;
+    }
+}

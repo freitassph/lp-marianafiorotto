@@ -1,0 +1,226 @@
+/* ══════════════════════════════════════════════
+   CARD SYSTEM
+   ══════════════════════════════════════════════ */
+
+.card {
+    background: #FFFFFF;
+    border-radius: var(--radius-md);
+    padding: var(--card-padding);
+    transition: all var(--transition-smooth);
+    position: relative;
+}
+
+/* Feature Card — Diferenciais (Glassmorphism) */
+.card--feature {
+    text-align: center;
+    border-top: var(--border-accent-top);
+    box-shadow: var(--shadow-sm);
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-top: var(--border-accent-top);
+}
+
+.card--feature:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px) scale(1.01);
+    border-top-color: var(--color-gold-600);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.card--feature__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-full);
+    background: var(--color-beige-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-5);
+}
+
+.card--feature__icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-beige-500);
+    stroke-width: 1.5px;
+}
+
+.card--feature__title {
+    font-family: var(--font-body);
+    font-size: var(--text-h4-size);
+    font-weight: var(--text-h4-weight);
+    color: var(--color-gold-600);
+    margin-bottom: var(--space-3);
+}
+
+.card--feature__description {
+    font-size: var(--text-body-sm-size);
+    color: var(--text-secondary);
+    line-height: var(--text-body-sm-line-height);
+}
+
+/* Specialty Card — Especialidades */
+.card--specialty {
+    border-left: var(--border-accent-left);
+    box-shadow: var(--shadow-xs);
+    cursor: pointer;
+}
+
+.card--specialty:hover {
+    box-shadow: var(--shadow-md);
+    border-left-color: var(--color-gold-600);
+}
+
+.card--specialty__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.card--specialty__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    background: var(--color-gold-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.card--specialty__icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-beige-500);
+    stroke-width: 1.5px;
+}
+
+.card--specialty__title {
+    font-family: var(--font-body);
+    font-size: var(--text-h4-size);
+    font-weight: var(--text-h4-weight);
+    color: var(--text-primary);
+}
+
+.card--specialty__body {
+    display: none;
+    /* collapsed by default */
+    margin-top: var(--space-4);
+    font-size: var(--text-body-size);
+    color: var(--text-secondary);
+    line-height: var(--text-body-line-height);
+}
+
+.card--specialty.is-open .card--specialty__body {
+    display: block;
+}
+
+/* Content Card — Educação (Magazine style) */
+.card--content {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    background: #FFFFFF;
+}
+
+.card--content:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+.card--content__image {
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.card--content:hover .card--content__image {
+    transform: scale(1.05);
+}
+
+.card--content__body {
+    padding: var(--card-padding);
+}
+
+.card--content__tag {
+    font-family: var(--font-body);
+    font-size: var(--text-overline-size);
+    font-weight: var(--text-overline-weight);
+    letter-spacing: var(--text-overline-letter-spacing);
+    text-transform: uppercase;
+    color: var(--color-beige-500);
+    margin-bottom: var(--space-2);
+    display: block;
+}
+
+.card--content__title {
+    font-family: var(--font-body);
+    font-size: var(--text-h3-size);
+    font-weight: var(--text-h3-weight);
+    color: var(--text-primary);
+    margin-bottom: var(--space-3);
+}
+
+/* Step Card — Abordagem (Timeline) */
+.card--step {
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    padding: var(--space-7);
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.card--step__number {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background: var(--color-gold-600);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+}
+
+.card--step__title {
+    font-family: var(--font-body);
+    font-size: var(--text-h3-size);
+    font-weight: var(--text-h3-weight);
+    color: var(--color-gold-600);
+    margin-bottom: var(--space-3);
+}
+
+.card--step__description {
+    font-size: var(--text-body-size);
+    color: var(--text-secondary);
+    line-height: var(--text-body-line-height);
+}
+
+/* Stat Card — Números/Resultados */
+.card--stat {
+    text-align: center;
+    padding: var(--space-7) var(--space-4);
+}
+
+.card--stat__number {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: #FFFFFF;
+    line-height: 1;
+    margin-bottom: var(--space-2);
+}
+
+.card--stat__label {
+    font-family: var(--font-body);
+    font-size: var(--text-body-sm-size);
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}

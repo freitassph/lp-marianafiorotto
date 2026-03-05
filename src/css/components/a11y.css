@@ -1,0 +1,7 @@
+/* A+++ Accessibility overrides */
+:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px var(--c-paper), 0 0 0 4px var(--c-gold) !important;
+    border-radius: 4px;
+    transition: box-shadow 0.2s ease-in-out;
+}

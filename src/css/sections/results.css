@@ -1,0 +1,43 @@
+/* ══════════════════════════════════════════════
+   RESULTS SECTION (Números/Estatísticas)
+   ══════════════════════════════════════════════ */
+
+.results {
+    background: var(--color-gold-600);
+    background:
+        radial-gradient(ellipse at center, var(--color-gold-500) 0%, var(--color-gold-700) 100%),
+        url('/assets/images/textures/grain.png');
+    background-blend-mode: overlay;
+    color: #FFFFFF;
+    position: relative;
+    padding: var(--space-12) 0;
+}
+
+/* Redefinicao de cores do header pra essa secao invertida */
+.results .section-header__overline {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.results .section-header__title {
+    color: #FFFFFF;
+}
+
+.results .section-header__divider {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+.results .section-header__subtitle {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.results__disclaimer {
+    text-align: center;
+    margin-top: var(--space-8);
+    font-family: var(--font-body);
+    font-size: var(--text-caption-size);
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+}

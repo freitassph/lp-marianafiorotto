@@ -1,0 +1,100 @@
+/* ══════════════════════════════════════════════
+   SPECIALTIES SECTION
+   ══════════════════════════════════════════════ */
+
+.specialties {
+    background: var(--bg-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Tabs for Desktop */
+.specialties__tabs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    position: sticky;
+    top: 100px;
+    /* offset navbar */
+}
+
+.specialties__tab-btn {
+    text-align: left;
+    padding: var(--space-4);
+    background: transparent;
+    border: none;
+    border-left: 2px solid var(--border-default);
+    font-family: var(--font-body);
+    font-size: var(--text-h4-size);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.specialties__tab-btn:hover {
+    color: var(--color-gold-600);
+}
+
+.specialties__tab-btn.is-active {
+    border-left-color: var(--color-gold-600);
+    background: var(--color-gold-50);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.specialties__content-area {
+    padding: var(--space-6);
+    background: #FFFFFF;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    min-height: 400px;
+}
+
+.specialties__tab-panel {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.specialties__tab-panel.is-active {
+    display: block;
+}
+
+.specialties__panel-title {
+    font-family: var(--font-display);
+    font-size: var(--text-h2-size);
+    color: var(--color-gold-600);
+    margin-bottom: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.specialties__panel-icon {
+    color: var(--color-beige-500);
+    width: 32px;
+    height: 32px;
+}
+
+.specialties__panel-desc {
+    font-family: var(--font-body);
+    color: var(--text-secondary);
+    line-height: var(--text-body-line-height);
+}
+
+/* Mobile: usamos o .accordion que ja esta em components/accordion.css */
+.specialties__mobile-accordion {
+    display: none;
+    /* Desktop usa Tabs */
+}
+
+@media (max-width: 1024px) {
+
+    .specialties__tabs,
+    .specialties__content-area {
+        display: none;
+    }
+
+    .specialties__mobile-accordion {
+        display: block;
+    }
+}

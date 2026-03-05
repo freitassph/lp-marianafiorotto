@@ -1,0 +1,48 @@
+/* ══════════════════════════════════════════════
+   FLOATING CTA (Mobile Only)
+   ══════════════════════════════════════════════ */
+
+.floating-cta {
+    display: none;
+    position: fixed;
+    bottom: var(--space-5);
+    left: var(--space-4);
+    right: var(--space-4);
+    z-index: var(--z-floating-cta);
+    animation: floatCTA var(--duration-slow) var(--transition-spring) forwards;
+}
+
+.floating-cta__button {
+    width: 100%;
+    height: 56px;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    background: var(--color-whatsapp);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: var(--text-cta-size);
+    font-weight: var(--text-cta-weight);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-whatsapp), 0 8px 30px rgba(37, 211, 102, 0.4);
+    text-decoration: none;
+    transition: all var(--transition-smooth);
+}
+
+.floating-cta__button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.floating-cta__button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+    .floating-cta.is-visible {
+        display: block;
+    }
+}

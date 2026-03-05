@@ -1,0 +1,161 @@
+/* ══════════════════════════════════════════════
+   BUTTON SYSTEM
+   ══════════════════════════════════════════════ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-family: var(--font-body);
+    font-size: var(--text-cta-size);
+    font-weight: var(--text-cta-weight);
+    letter-spacing: var(--text-cta-letter-spacing);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sizes */
+.btn--sm {
+    height: 40px;
+    padding: 0 var(--space-5);
+    font-size: 0.875rem;
+    border-radius: var(--radius-sm);
+}
+
+.btn--md {
+    height: 48px;
+    padding: 0 var(--space-7);
+    font-size: 1rem;
+    border-radius: var(--radius-md);
+}
+
+.btn--lg {
+    height: 56px;
+    padding: 0 var(--space-8);
+    font-size: 1.063rem;
+    border-radius: var(--radius-3xl);
+}
+
+/* Variants */
+.btn--primary {
+    background: var(--color-gold-600);
+    color: #FFFFFF;
+    box-shadow: var(--shadow-gold);
+}
+
+.btn--primary:hover {
+    background: var(--color-gold-700);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(166, 125, 84, 0.4);
+}
+
+.btn--secondary {
+    background: var(--color-beige-500);
+    color: var(--text-on-gold);
+    box-shadow: var(--shadow-beige);
+}
+
+.btn--secondary:hover {
+    background: var(--color-beige-600);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn--ghost {
+    background: transparent;
+    color: var(--color-beige-600);
+    border-color: transparent;
+    padding: 0;
+    height: auto;
+}
+
+.btn--ghost:hover {
+    color: var(--color-gold-600);
+    text-decoration: underline;
+}
+
+.btn--whatsapp {
+    background: var(--color-whatsapp);
+    color: #FFFFFF;
+    box-shadow: var(--shadow-whatsapp);
+}
+
+.btn--whatsapp:hover {
+    background: var(--color-whatsapp-hover);
+    transform: translateY(-2px);
+}
+
+.btn--on-gold {
+    background: #FFFFFF;
+    color: var(--color-gold-600);
+}
+
+.btn--on-gold:hover {
+    background: var(--color-beige-500);
+    color: var(--color-gold-900);
+    transform: translateY(-2px);
+}
+
+.btn--on-gold:focus-visible {
+    outline: 2px solid var(--color-text-on-gold);
+    outline-offset: 2px;
+}
+
+/* Full-width (mobile) */
+.btn--full {
+    width: 100%;
+}
+
+/* Shimmer Effect for primary buttons */
+.btn--shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-20deg);
+    animation: shimmer 4s infinite linear;
+}
+
+/* ══════════════════════════════════════════════
+   PREMIUM LUXURY BUTTON (FROM IMPROVEMENTS REPORT)
+   ══════════════════════════════════════════════ */
+.btn--premium {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    background: var(--gradient-gold, linear-gradient(135deg, #D4AF37 0%, #AA8B56 100%));
+    color: #FFFFFF;
+    border: none;
+    box-shadow: var(--shadow-elevated);
+}
+
+.btn--premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-shimmer);
+    transition: left 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.btn--premium:hover::before {
+    left: 100%;
+}
+
+.btn--premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(166, 138, 101, 0.3);
+}

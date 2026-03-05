@@ -1,0 +1,61 @@
+/* ══════════════════════════════════════════════
+   DECORATIVE ELEMENTS
+   ══════════════════════════════════════════════ */
+
+/* Cursor Glow Desktop */
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: var(--z-behind);
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(225, 166, 160, 0.08) 0%, rgba(225, 166, 160, 0) 70%);
+    transition: transform 0.1s ease-out;
+    /* Smooth tracking */
+}
+
+@media (max-width: 768px) {
+    .cursor-glow {
+        display: none;
+    }
+}
+
+/* Watermarks / Symbols */
+.watermark {
+    position: absolute;
+    pointer-events: none;
+    z-index: var(--z-behind);
+    user-select: none;
+}
+
+.watermark--hero {
+    top: 50%;
+    right: -5%;
+    transform: translateY(-50%) scale(1.5);
+    opacity: 0.03;
+    width: 500px;
+    height: auto;
+}
+
+.watermark--section {
+    top: -5%;
+    left: -5%;
+    opacity: 0.03;
+    width: 400px;
+    height: auto;
+    transform: rotate(-15deg);
+}
+
+.watermark--cta {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0.05;
+    width: 500px;
+    filter: brightness(2) saturate(0);
+    /* Make it subtly visible on gold */
+}

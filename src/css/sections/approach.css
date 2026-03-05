@@ -1,0 +1,25 @@
+/* ══════════════════════════════════════════════
+   APPROACH SECTION (Linha do Tempo)
+   ══════════════════════════════════════════════ */
+
+.approach {
+    background: var(--bg-accent);
+    /* backgroundColor Rosado Sutil */
+    position: relative;
+    overflow: visible;
+    /* para watermark transbordar um pouco se houver */
+}
+
+/* Estilo adicional alem do timeline.css component */
+.approach .section-header__overline {
+    color: var(--color-gold-600);
+}
+
+.approach .section-header__title {
+    color: var(--color-beige-800);
+}
+
+.approach__timeline-wrapper {
+    margin-top: var(--space-10);
+    position: relative;
+}

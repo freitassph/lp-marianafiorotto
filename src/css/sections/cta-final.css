@@ -1,0 +1,94 @@
+/* ══════════════════════════════════════════════
+   CTA FINAL SECTION
+   ══════════════════════════════════════════════ */
+
+.cta-final {
+    position: relative;
+    padding: var(--space-13) var(--section-padding-x);
+    text-align: center;
+    color: #FFFFFF;
+    background:
+        url('/assets/images/textures/grain.png'),
+        radial-gradient(circle at 50% 10%, rgba(225, 166, 160, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(154, 118, 82, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, #1A1816 0%, #2D2A26 100%);
+    background-blend-mode: overlay, normal, normal, normal;
+    overflow: hidden;
+}
+
+.cta-final__container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-final__overline {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-overline-size);
+    letter-spacing: var(--text-overline-letter-spacing);
+    text-transform: uppercase;
+    color: var(--color-beige-400);
+    margin-bottom: var(--space-5);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid rgba(225, 166, 160, 0.3);
+    border-radius: var(--radius-full);
+}
+
+.cta-final__headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: 0;
+    margin-bottom: var(--space-6);
+    background: linear-gradient(180deg, #FFFFFF 0%, #D8D2CB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-final__description {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto var(--space-8);
+}
+
+.cta-final__action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+}
+
+.cta-final__btn {
+    /* Substituir valores para um botão premium extra grande se necessário, 
+     mas a classe btn--lg e btn--shimmer já faz a base */
+    font-size: 1.125rem;
+    padding: 0 var(--space-10);
+    height: 64px;
+}
+
+.cta-final__contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-6);
+    font-size: var(--text-body-sm-size);
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.cta-final__contact-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.cta-final__contact-item svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-beige-400);
+}

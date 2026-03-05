@@ -1,0 +1,34 @@
+/* ══════════════════════════════════════════════
+   FAQ SECTION
+   ══════════════════════════════════════════════ */
+
+.faq {
+    background: var(--bg-secondary);
+}
+
+/* Estetica premium especifica do FAQ ja tratada em accordion.css, 
+   aqui entra apenas ajustes minimos da secao */
+.faq__contact {
+    margin-top: var(--space-10);
+    background: #FFFFFF;
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq__contact-title {
+    color: var(--color-gold-600);
+    font-family: var(--font-body);
+    font-size: var(--text-h3-size);
+    margin-bottom: var(--space-3);
+}
+
+.faq__contact-text {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-5);
+    line-height: var(--text-body-line-height);
+}

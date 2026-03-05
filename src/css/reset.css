@@ -1,0 +1,86 @@
+/* ══════════════════════════════════════════════
+   RESET CSS (Modern Normalize)
+   ══════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    font-family: var(--font-body);
+}
+
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+/* ══════════════════════════════════════════════
+   ACCESSIBILITY
+   ══════════════════════════════════════════════ */
+
+:focus-visible {
+    outline: 3px solid var(--color-focus-ring);
+    outline-offset: 2px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-gold-600);
+    color: #FFFFFF;
+    padding: var(--space-3) var(--space-6);
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    font-family: var(--font-body);
+    font-weight: 600;
+    z-index: var(--z-max);
+    transition: top var(--transition-base);
+}
+
+.skip-link:focus {
+    top: 0;
+}

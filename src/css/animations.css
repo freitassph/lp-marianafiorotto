@@ -1,0 +1,187 @@
+/* ══════════════════════════════════════════════
+   ANIMATIONS KEYFRAMES & CHOREOGRAPHY
+   ══════════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUpBlur {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        filter: blur(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes counterUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatCTA {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Choreography Classes adicionais */
+.reveal--fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.reveal--fade-left {
+    opacity: 0;
+    transform: translateX(-40px);
+}
+
+.reveal--fade-right {
+    opacity: 0;
+    transform: translateX(40px);
+}
+
+.reveal--scale {
+    opacity: 0;
+    transform: scale(0.92);
+}
+
+.reveal--stagger {
+    opacity: 0;
+    transform: translateY(30px);
+    /* delay é setado via JS com data-delay attribute */
+}
+
+.reveal--fade-up.is-visible,
+.reveal--fade-left.is-visible,
+.reveal--fade-right.is-visible,
+.reveal--scale.is-visible,
+.reveal--stagger.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ══════════════════════════════════════════════
+   PREFERS REDUCED MOTION
+   ══════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal,
+    .reveal--fade-up,
+    .reveal--fade-left,
+    .reveal--fade-right,
+    .reveal--scale,
+    .reveal--stagger {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

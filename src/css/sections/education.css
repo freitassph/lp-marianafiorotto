@@ -1,0 +1,19 @@
+/* ══════════════════════════════════════════════
+   EDUCATION SECTION (Blog/Conteúdo)
+   ══════════════════════════════════════════════ */
+
+.education {
+    background: var(--bg-primary);
+}
+
+.education__button-wrapper {
+    margin-top: var(--space-10);
+    text-align: center;
+}
+
+.education__disclaimer {
+    color: var(--text-tertiary);
+    margin-top: var(--space-4);
+    font-size: var(--text-caption-size);
+    font-style: italic;
+}

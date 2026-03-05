@@ -1,0 +1,15 @@
+{
+    "name": "lp-dra-mariana-fiorotto",
+    "version": "1.0.0",
+    "description": "Landing Page Premium — Dra. Mariana Fiorotto | Endocrinologista",
+    "private": true,
+    "scripts": {
+        "dev": "npx live-server public --port=3000 --no-browser",
+        "build": "node scripts/build.js",
+        "build:css": "cat src/css/tokens.css src/css/reset.css src/css/base.css src/css/grid.css src/css/utilities.css src/css/components/*.css src/css/sections/*.css src/css/animations.css > public/css/main.css",
+        "build:js": "cat src/js/utils.js src/js/modules/*.js > public/js/app.js",
+        "optimize:images": "node scripts/optimize-images.js",
+        "lint:html": "npx htmlhint public/index.html",
+        "audit": "npx lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html"
+    }
+}
