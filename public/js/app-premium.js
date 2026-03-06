@@ -503,13 +503,13 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 preloader.remove();
             }, 800); // Wait for CSS transition
-        }, 300); // 300ms guaranteed look at the logo
+        }, 500); // 500ms guaranteed look at the logo
     };
 
     window.addEventListener('load', hidePreloader);
 
     // Fallback if load is slow
-    setTimeout(hidePreloader, 1400);
+    setTimeout(hidePreloader, 2000);
 });
 
 
@@ -610,6 +610,16 @@ window.App.SmoothScroll = {
 // Main App Entry
 document.addEventListener("DOMContentLoaded", () => {
     console.log("App Inicializado com plugins premium.");
+
+    if (window.App) {
+        // Initialize components safely
+        if (window.App.Navbar) window.App.Navbar.init();
+        if (window.App.ActiveNav) window.App.ActiveNav.init();
+        if (window.App.CookieBanner) window.App.CookieBanner.init();
+        if (window.App.CursorGlow) window.App.CursorGlow.init();
+        if (window.App.FloatingCTA) window.App.FloatingCTA.init();
+        if (window.App.SmoothScroll) window.App.SmoothScroll.init();
+    }
 });
 
 
