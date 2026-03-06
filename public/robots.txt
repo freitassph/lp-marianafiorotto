@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://dramarianafiorotto.com.br/sitemap.xml
+Sitemap: https://dramarianafiorotto.vercel.app/sitemap.xml
