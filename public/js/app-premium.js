@@ -49,42 +49,6 @@ window.App.Utils = {
 var App = App || {};
 
 document.addEventListener("DOMContentLoaded", () => {
-    // ----------------------------------------------------
-    // S+++ TIER: Lenis Smooth Scroll Engine
-    // ----------------------------------------------------
-    let lenis;
-    if (typeof Lenis !== 'undefined') {
-        window.lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-            infinite: false,
-        });
-
-        // Request Animation Frame Integration
-        function raf(time) {
-            if (window.lenis) window.lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-    }
-
-    // Global Progress Bar
-    const progressBar = document.getElementById('progressBar');
-    if (progressBar) {
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + "%";
-        });
-    }
-
     const accordions = document.querySelectorAll('.acc-item');
     if (!accordions.length) return;
 
@@ -106,32 +70,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (isOpen) {
             // Close it
-            content.style.maxHeight = `${content.scrollHeight}px`;
+            content.style.height = `${content.scrollHeight}px`;
 
             // Force reflow
             void content.offsetHeight;
 
-            content.style.maxHeight = '0px';
+            content.style.height = '0px';
             acc.classList.remove('is-active');
 
             setTimeout(() => {
                 acc.removeAttribute('open');
-                content.style.maxHeight = '';
+                content.style.height = '';
             }, 400); // matches CSS transition duration
         } else {
-            // Open it (Wait for open attribute to render before setting height to trigger transition)
+            // Open it
             acc.setAttribute('open', '');
             acc.classList.add('is-active');
 
-            content.style.maxHeight = '0px';
+            const targetHeight = content.scrollHeight;
+            content.style.height = '0px';
 
             // Force reflow
             void content.offsetHeight;
 
-            content.style.maxHeight = `${content.scrollHeight}px`;
+            content.style.height = `${targetHeight}px`;
 
             setTimeout(() => {
-                content.style.maxHeight = 'none'; // allow it to be responsive
+                content.style.height = 'auto'; // allow it to be responsive
             }, 400);
         }
     }
@@ -181,8 +146,9 @@ window.App.ActiveNav = {
 
 window.App.CookieBanner = {
     init() {
-        this.banner = document.querySelector('.cookie-notice');
-        this.btnAccept = document.getElementById('btn-cookie-accept');
+        this.banner = document.querySelector('.cookie-banner');
+        this.btnAccept = document.querySelector('.cookie-banner__accept');
+        this.btnReject = document.querySelector('.cookie-banner__reject');
 
         if (!this.banner) return;
 
@@ -194,6 +160,10 @@ window.App.CookieBanner = {
 
         if (this.btnAccept) {
             this.btnAccept.addEventListener('click', () => this.handleConsent('accepted'));
+        }
+
+        if (this.btnReject) {
+            this.btnReject.addEventListener('click', () => this.handleConsent('rejected'));
         }
     },
 
@@ -274,7 +244,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 window.App.CursorGlow = {
     init() {
-        // Disabled per user request
+        // Only initialize for desktop users primarily without touch devices
+        if (window.innerWidth <= 768 || window.matchMedia('(hover: none)').matches) return;
+
+        this.cursor = document.querySelector('.cursor-glow');
+        if (!this.cursor) return;
+
+        document.addEventListener('mousemove', (e) => {
+            // Fast tracked using requestAnimationFrame is smoother, but setting custom property or style direct is ok
+            this.cursor.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
+        });
+
+        // Optional: add opacity logic if hovering over buttons
     }
 };
 
@@ -295,8 +276,8 @@ document.addEventListener("DOMContentLoaded", () => {
 window.App.FloatingCTA = {
     init() {
         this.cta = document.querySelector('.floating-cta');
-        this.heroSection = document.querySelector('#hero');
-        this.footerSection = document.querySelector('#footer');
+        this.heroSection = document.querySelector('#home');
+        this.footerSection = document.querySelector('.footer');
 
         // Only initialize on mobile (or if the element exists)
         if (!this.cta || window.innerWidth > 768) return;
@@ -505,17 +486,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.preloaderInit) return;
     window.preloaderInit = true;
 
-    // Create Preloader dynamically
-    const preloader = document.createElement('div');
-    preloader.className = 'preloader-atmospheric';
+    const preloader = document.querySelector('.preloader-atmospheric');
+    if (!preloader) {
+        document.body.style.overflow = '';
+        return;
+    }
 
-    // Contains just the logo
-    preloader.innerHTML = `
-        <div class="preloader-curtain"></div>
-        <img src="/assets/logos/logo-symbol-01.png" alt="Dra. Mariana Fiorotto" class="preloader-logo">
-    `;
-
-    document.body.prepend(preloader);
     document.body.style.overflow = 'hidden'; // prevent scrolling
 
     // Animate out after everything loads or max 1.2s timeout
@@ -619,18 +595,13 @@ window.App.SmoothScroll = {
     },
 
     scrollToElement(element) {
-        // Compute offset and account for the sticky header height + visual breathing room
-        const finalOffset = 85;
-        const scrollPosition = element.getBoundingClientRect().top + window.scrollY - finalOffset;
+        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+        const offset = element.getBoundingClientRect().top + window.scrollY - navbarHeight;
 
-        if (window.lenis) {
-            window.lenis.scrollTo(scrollPosition);
-        } else {
-            window.scrollTo({
-                top: scrollPosition,
-                behavior: 'smooth'
-            });
-        }
+        window.scrollTo({
+            top: offset,
+            behavior: 'smooth'
+        });
     }
 };
 
@@ -638,15 +609,6 @@ window.App.SmoothScroll = {
 /* === main.js === */
 // Main App Entry
 document.addEventListener("DOMContentLoaded", () => {
-    // Initialize Navbar for Mobile Menu
-    if (window.App.Navbar) window.App.Navbar.init();
-
-    // Initialize ScrollSpy
-    if (window.App.ActiveNav) window.App.ActiveNav.init();
-
-    // Initialize SmoothScroll
-    if (window.App.SmoothScroll) window.App.SmoothScroll.init();
-
     console.log("App Inicializado com plugins premium.");
 });
 

@@ -5,8 +5,8 @@
 window.App.FloatingCTA = {
     init() {
         this.cta = document.querySelector('.floating-cta');
-        this.heroSection = document.querySelector('#hero');
-        this.footerSection = document.querySelector('#footer');
+        this.heroSection = document.querySelector('#home');
+        this.footerSection = document.querySelector('.footer');
 
         // Only initialize on mobile (or if the element exists)
         if (!this.cta || window.innerWidth > 768) return;

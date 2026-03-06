@@ -66,6 +66,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -510,7 +511,9 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 15vh;
+    overflow-y: auto;
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
@@ -735,22 +738,16 @@ button {
     background-color: var(--c-sand);
 }
 
-/* Organic shadow vignette */
+/* Organic shadow vignette - Removido a pedido do usuário */
 .hero__image-shell::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top right, transparent 50%, rgba(21, 20, 18, 0.3) 120%);
-    z-index: 2;
-    pointer-events: none;
-    mix-blend-mode: multiply;
+    display: none;
 }
 
 .hero__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 25%;
+    object-position: center top;
     animation: scaleInSoft 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.4s both;
 }
 
@@ -840,7 +837,7 @@ button {
     gap: var(--s-xl);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 800px) {
     .about__grid {
         grid-template-columns: 0.9fr 1.1fr;
         align-items: center;
@@ -854,7 +851,7 @@ button {
 }
 
 /* S+++: Negative offset collision to break the grid */
-@media (min-width: 1024px) {
+@media (min-width: 800px) {
     .about__image-frame {
         transform: translateY(80px);
         margin-bottom: 80px;
@@ -878,6 +875,7 @@ button {
     width: 100%;
     aspect-ratio: 4/5;
     object-fit: cover;
+    object-position: center top;
     box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
     transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
@@ -1018,7 +1016,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at top left, rgba(179, 154, 114, 0.08) 0%, transparent 60%);
+    background: radial-gradient(600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(179, 154, 114, 0.12) 0%, transparent 40%);
     z-index: -1;
     opacity: 0;
     transition: opacity 0.6s var(--ease);
@@ -1448,7 +1446,7 @@ button {
     padding: var(--s-xl) 0 var(--s-md);
 }
 
-.footer-top {
+.footer__grid {
     display: grid;
     gap: var(--s-lg);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -1457,17 +1455,17 @@ button {
 }
 
 @media (min-width: 768px) {
-    .footer-top {
+    .footer__grid {
         grid-template-columns: 2fr 1fr 1fr;
     }
 }
 
-.footer-logo {
+.footer__logo {
     max-width: 160px;
     margin-bottom: var(--s-md);
 }
 
-.footer-col h4 {
+.footer__title {
     font-family: var(--f-sans);
     font-size: 0.65rem;
     text-transform: uppercase;
@@ -1476,32 +1474,83 @@ button {
     margin-bottom: 1.5rem;
 }
 
-.footer-col ul {
+.footer__links {
     list-style: none;
 }
 
-.footer-col li {
+.footer__links li {
     margin-bottom: 0.8rem;
     font-size: 0.9rem;
 }
 
-.footer-col a:hover {
+.footer__links a:hover {
     color: var(--c-white);
 }
 
-.footer-col p {
+.footer__col p {
     font-size: 0.9rem;
     margin-bottom: 0.2rem;
 }
 
-.footer-legal {
+.footer__contact-link {
+    display: inline-block;
+    color: var(--c-gold);
+    font-weight: 500;
+    transition: color 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+.footer__contact-link:hover {
+    color: var(--c-white);
+    transform: translateX(4px);
+}
+
+.footer__bottom {
     text-align: center;
     font-size: 0.75rem;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: var(--s-sm);
 }
 
-.footer-legal strong {
+.footer__credentials strong {
     color: rgba(255, 255, 255, 0.8);
+}
+
+.footer__disclaimer {
+    opacity: 0.7;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer__copyright {
+    margin-top: var(--s-xs);
+    opacity: 0.6;
+}
+
+.footer__dev-credit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.05em;
+    transition: color 0.4s var(--ease), gap 0.4s var(--ease);
+}
+
+.footer__dev-credit:hover {
+    color: var(--c-gold);
+    gap: 0.6rem;
+}
+
+.footer__dev-credit svg {
+    transition: transform 0.4s var(--ease);
+    flex-shrink: 0;
+}
+
+.footer__dev-credit:hover svg {
+    transform: rotate(15deg) scale(1.2);
 }
 
 /* FLOATING WHATSAPP BUTTON (CUSTOM LUXURY) */
@@ -1699,7 +1748,7 @@ button {
 }
 
 .preloader-logo {
-    max-width: 80px;
+    max-width: 180px;
     animation: pulse-elegant 2s infinite ease-in-out;
 }
 
@@ -1728,33 +1777,11 @@ body::before {
     width: 200vw;
     height: 200vh;
     background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
-    opacity: 0.012;
+    opacity: 0.015;
     pointer-events: none;
     z-index: 9998;
     mix-blend-mode: overlay;
-    animation: grain-animation 2s steps(4) infinite;
-}
-
-@keyframes grain-animation {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    25% {
-        transform: translate(-5%, -5%);
-    }
-
-    50% {
-        transform: translate(-10%, 5%);
-    }
-
-    75% {
-        transform: translate(5%, -10%);
-    }
-
-    100% {
-        transform: translate(0, 0);
-    }
+    /* Animação removida pela auditoria premium para economia dramática de GPU em MacBooks */
 }
 
 /* ════════════ REVEAL ANIMATIONS ════════════ */

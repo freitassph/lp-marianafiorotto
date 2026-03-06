@@ -5,17 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.preloaderInit) return;
     window.preloaderInit = true;
 
-    // Create Preloader dynamically
-    const preloader = document.createElement('div');
-    preloader.className = 'preloader-atmospheric';
+    const preloader = document.querySelector('.preloader-atmospheric');
+    if (!preloader) {
+        document.body.style.overflow = '';
+        return;
+    }
 
-    // Contains just the logo
-    preloader.innerHTML = `
-        <div class="preloader-curtain"></div>
-        <img src="/assets/logos/logo-symbol-01.png" alt="Dra. Mariana Fiorotto" class="preloader-logo">
-    `;
-
-    document.body.prepend(preloader);
     document.body.style.overflow = 'hidden'; // prevent scrolling
 
     // Animate out after everything loads or max 1.2s timeout
