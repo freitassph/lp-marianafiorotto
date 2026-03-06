@@ -503,13 +503,13 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
                 preloader.remove();
             }, 800); // Wait for CSS transition
-        }, 500); // 500ms guaranteed look at the logo
+        }, 300); // 300ms guaranteed look at the logo
     };
 
     window.addEventListener('load', hidePreloader);
 
     // Fallback if load is slow
-    setTimeout(hidePreloader, 2000);
+    setTimeout(hidePreloader, 1400);
 });
 
 

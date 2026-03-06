@@ -58,12 +58,18 @@
     <link rel="icon" type="image/png" href="/assets/logos/logo-symbol-01.png">
     <link rel="apple-touch-icon" href="/assets/logos/logo-symbol-01.png">
 
-    <!-- Fonts -->
+    <!-- Fonts (non-render-blocking) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- Preloads for LCP -->
     <link rel="preload" as="image" href="/assets/images/hero/dra-mariana-hero.jpg" fetchpriority="high">
@@ -1285,7 +1291,7 @@
             });
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js" defer></script>
     <script src="/js/app-premium.js" defer></script>
 </body>
 
