@@ -609,7 +609,7 @@ button {
 
 .hero__grid {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: var(--s-lg);
     position: relative;
     z-index: 10;
@@ -1444,6 +1444,13 @@ button {
     color: rgba(255, 255, 255, 0.85);
     /* Improved contrast */
     padding: var(--s-xl) 0 var(--s-md);
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer {
+        text-align: left;
+    }
 }
 
 .footer__grid {
@@ -1462,7 +1469,13 @@ button {
 
 .footer__logo {
     max-width: 160px;
-    margin-bottom: var(--s-md);
+    margin: 0 auto var(--s-md);
+}
+
+@media (min-width: 768px) {
+    .footer__logo {
+        margin: 0 0 var(--s-md);
+    }
 }
 
 .footer__title {

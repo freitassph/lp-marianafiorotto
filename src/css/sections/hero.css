@@ -116,6 +116,10 @@
         text-align: center;
     }
 
+    .hero__grid {
+        flex-direction: column;
+    }
+
     .hero__content {
         margin: 0 auto;
         max-width: 100%;

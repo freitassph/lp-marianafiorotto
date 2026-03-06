@@ -2446,6 +2446,13 @@ body::before {
     padding: var(--space-12) var(--section-padding-x) var(--space-6);
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     /* Separação sutil da CTA-final */
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer {
+        text-align: left;
+    }
 }
 
 .footer__grid {
@@ -2474,6 +2481,13 @@ body::before {
     height: 40px;
     width: auto;
     opacity: 0.9;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .footer__logo {
+        margin: 0;
+    }
 }
 
 .footer__description {
@@ -2689,6 +2703,10 @@ body::before {
         min-height: auto;
         padding-top: calc(var(--navbar-height-mobile) + var(--space-8));
         text-align: center;
+    }
+
+    .hero__grid {
+        flex-direction: column;
     }
 
     .hero__content {
