@@ -13,20 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.style.overflow = 'hidden'; // prevent scrolling
 
-    // Animate out after everything loads or max 1.2s timeout
+    // Animate out after everything loads or max 800ms timeout to preserve mobile LCP
     const hidePreloader = () => {
-        setTimeout(() => {
-            preloader.classList.add('is-hidden');
-            document.body.style.overflow = '';
-
+        if (!preloader.classList.contains('is-hidden')) {
             setTimeout(() => {
-                preloader.remove();
-            }, 800); // Wait for CSS transition
-        }, 500); // 500ms guaranteed look at the logo
+                preloader.classList.add('is-hidden');
+                document.body.style.overflow = '';
+
+                setTimeout(() => {
+                    preloader.remove();
+                }, 600); // 600ms CSS transition
+            }, 100); // 100ms guaranteed look at the logo
+        }
     };
 
     window.addEventListener('load', hidePreloader);
 
-    // Fallback if load is slow
-    setTimeout(hidePreloader, 2000);
+    // Fallback if load is slow (very crucial for simulated 4G mobile scoring)
+    setTimeout(hidePreloader, 800);
 });
