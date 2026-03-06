@@ -35,10 +35,10 @@
     <meta property="og:description"
         content="Especialista em diabetes, tireoide, obesidade e hormônios. Consultas particulares com atenção integral ao paciente em Gurupi, Tocantins.">
     <meta property="og:url" content="https://dramarianafiorotto.vercel.app/">
-    <meta property="og:image" content="https://dramarianafiorotto.vercel.app/assets/images/hero/dra-mariana-nova.png">
+    <meta property="og:image" content="https://dramarianafiorotto.vercel.app/assets/images/hero/dra-mariana-hero.jpg">
     <meta property="og:image:secure_url"
-        content="https://dramarianafiorotto.vercel.app/assets/images/hero/dra-mariana-nova.png">
-    <meta property="og:image:type" content="image/png">
+        content="https://dramarianafiorotto.vercel.app/assets/images/hero/dra-mariana-hero.jpg">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Dra. Mariana Fiorotto — Endocrinologista em Gurupi, Tocantins">
@@ -51,7 +51,7 @@
     <meta name="twitter:title" content="Dra. Mariana Fiorotto | Endocrinologista em Gurupi, TO">
     <meta name="twitter:description"
         content="Especialista em diabetes, tireoide, obesidade e hormônios. Consultas particulares em Gurupi, Tocantins.">
-    <meta name="twitter:image" content="https://dramarianafiorotto.vercel.app/assets/images/hero/dra-mariana-nova.png">
+    <meta name="twitter:image" content="https://dramarianafiorotto.vercel.app/assets/images/hero/dra-mariana-hero.jpg">
     <meta name="twitter:image:alt" content="Dra. Mariana Fiorotto — Endocrinologista em Gurupi, TO">
 
     <!-- Favicon -->
@@ -66,7 +66,7 @@
         rel="stylesheet">
 
     <!-- Preloads for LCP -->
-    <link rel="preload" as="image" href="/assets/images/hero/dra-mariana-nova.png" fetchpriority="high">
+    <link rel="preload" as="image" href="/assets/images/hero/dra-mariana-hero.jpg" fetchpriority="high">
 
     <!-- Framework de Layout Quiet Luxury Original -->
     <link rel="stylesheet" href="/css/styles.css">
@@ -76,7 +76,7 @@
         html.lenis,
         html.lenis body {
             height: auto;
-            width: 100vw;
+            width: 100%;
             overflow-x: hidden;
         }
 
@@ -99,6 +99,12 @@
 </head>
 
 <body>
+    <!-- PRELOADER PREMIUM HARDCODED (Evita FOUC) -->
+    <div class="preloader-atmospheric">
+        <div class="preloader-curtain"></div>
+        <img src="/assets/logos/logo-full-dark.png" alt="Dra. Mariana Fiorotto" class="preloader-logo">
+    </div>
+
     <!-- SVG SPRITE INJECTION -->
     <svg xmlns="http://www.w3.org/2000/svg" class="sr-only">
         <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor">
@@ -134,7 +140,7 @@
                     target="_blank" class="header__action btn--nav">Agendar Consulta</a>
 
                 <!-- Hamburger Menu for Mobile -->
-                <button class="navbar__burger" aria-label="Abrir menu">
+                <button class="navbar__burger" aria-label="Abrir menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -192,7 +198,7 @@
                     </div>
                 </div>
                 <div class="hero__image-shell">
-                    <img src="/assets/images/hero/dra-mariana-nova.png" alt="Retrato Dra. Mariana Fiorotto"
+                    <img src="/assets/images/hero/dra-mariana-hero.jpg" alt="Retrato Dra. Mariana Fiorotto"
                         class="hero__image" fetchpriority="high">
                 </div>
             </div>
@@ -230,8 +236,8 @@
         <section class="section" id="sobre">
             <div class="container about__grid">
                 <div class="about__image-frame">
-                    <img src="/assets/images/about/dra-mariana-sobre.jpg" alt="Dra. Mariana Fiorotto no consultório"
-                        loading="lazy">
+                    <img src="/assets/images/about/dra-mariana-about.jpg"
+                        alt="Dra. Mariana Fiorotto no consultório" loading="lazy">
                 </div>
                 <div class="about__copy">
                     <span class="overline">Sobre a Profissional</span>
@@ -706,7 +712,7 @@
           "Family Medicine"
         ],
         "url": "https://dramarianafiorotto.vercel.app",
-        "image": "https://dramarianafiorotto.vercel.app/assets/images/hero/dra-mariana-nova.png",
+        "image": "https://dramarianafiorotto.vercel.app/assets/images/hero/dra-mariana-hero.jpg",
         "logo": "https://dramarianafiorotto.vercel.app/assets/logos/logo-symbol-01.png",
         "telephone": "+5563992442406",
         "priceRange": "$$",
@@ -813,7 +819,7 @@
     <div class="edu-modal-overlay" id="eduOverlay" onclick="closeEduModal()"></div>
 
     <!-- Modal 1: Menopausa -->
-    <div class="edu-modal" id="modal-menopausa" data-lenis-prevent>
+    <div class="edu-modal" id="modal-menopausa" data-lenis-prevent aria-hidden="true" role="dialog" aria-modal="true">
         <div class="edu-modal__header">
             <span class="t-editorial text-lg">Acervo Clínico</span>
             <button class="edu-modal__close" onclick="closeEduModal()" aria-label="Fechar janela">
@@ -876,7 +882,7 @@
     </div>
 
     <!-- Modal 2: Obesidade -->
-    <div class="edu-modal" id="modal-obesidade" data-lenis-prevent>
+    <div class="edu-modal" id="modal-obesidade" data-lenis-prevent aria-hidden="true" role="dialog" aria-modal="true">
         <div class="edu-modal__header">
             <span class="t-editorial text-lg">Acervo Clínico</span>
             <button class="edu-modal__close" onclick="closeEduModal()" aria-label="Fechar janela">
@@ -943,7 +949,7 @@
     </div>
 
     <!-- Modal 3: Diabetes -->
-    <div class="edu-modal" id="modal-diabetes" data-lenis-prevent>
+    <div class="edu-modal" id="modal-diabetes" data-lenis-prevent aria-hidden="true" role="dialog" aria-modal="true">
         <div class="edu-modal__header">
             <span class="t-editorial text-lg">Acervo Clínico</span>
             <button class="edu-modal__close" onclick="closeEduModal()" aria-label="Fechar janela">
@@ -1003,7 +1009,9 @@
         function openEduModal(modalId) {
             document.body.style.overflow = 'hidden'; // block page scroll
             document.getElementById('eduOverlay').classList.add('is-active');
-            document.getElementById(modalId).classList.add('is-active');
+            const modal = document.getElementById(modalId);
+            modal.classList.add('is-active');
+            modal.setAttribute('aria-hidden', 'false');
         }
 
         function closeEduModal() {
@@ -1012,7 +1020,10 @@
 
             // remove active class from all modals
             const modals = document.querySelectorAll('.edu-modal');
-            modals.forEach(modal => modal.classList.remove('is-active'));
+            modals.forEach(modal => {
+                modal.classList.remove('is-active');
+                modal.setAttribute('aria-hidden', 'true');
+            });
         }
     </script>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>

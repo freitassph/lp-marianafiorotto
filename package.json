@@ -11,5 +11,8 @@
         "optimize:images": "node scripts/optimize-images.js",
         "lint:html": "npx htmlhint public/index.html",
         "audit": "npx lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html"
+    },
+    "devDependencies": {
+        "sharp": "^0.34.5"
     }
 }
