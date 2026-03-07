@@ -26,6 +26,31 @@ window.App.Navbar = {
                 ticking = true;
             }
         });
+
+        // Mobile menu toggle - use robust click handler
+        if (this.burgerBtn && this.overlayMenu) {
+            this.burgerBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.toggleMenu();
+            });
+
+            // Update aria-expanded for accessibility
+            this.burgerBtn.addEventListener('click', () => {
+                const isExpanded = this.overlayMenu.classList.contains('is-open');
+                this.burgerBtn.setAttribute('aria-expanded', isExpanded);
+            });
+        }
+
+        // Close mobile menu on link click
+        if (this.mobileLinks) {
+            this.mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (this.overlayMenu.classList.contains('is-open')) {
+                        this.toggleMenu();
+                    }
+                });
+            });
+        }
     },
 
     handleScroll() {

@@ -16,6 +16,7 @@ body {
     line-height: var(--text-body-line-height);
     position: relative;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
 }
 
 /* Typography Base */

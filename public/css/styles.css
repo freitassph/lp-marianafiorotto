@@ -73,6 +73,7 @@ html {
     font-size: 16px;
     scroll-behavior: smooth;
     background-color: var(--c-paper);
+    overscroll-behavior-y: none;
 }
 
 body {
@@ -83,6 +84,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
 }
 
 img,
@@ -2056,6 +2058,17 @@ body::before {
     align-items: center;
     justify-content: center;
     transition: all 0.4s var(--ease);
+    position: relative;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    /* Extra padding implicitly via pseudo-element for larger touch target without changing visual size */
+}
+
+.edu-modal__close::after {
+    content: '';
+    position: absolute;
+    inset: -10px;
 }
 
 .edu-modal__close:hover {

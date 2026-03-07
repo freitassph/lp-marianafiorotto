@@ -1,295 +1,295 @@
 /* === css/tokens.css === */
 :root {
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      CORE BRAND APP COLORS ($1B LUXURY CLINIC)
      ══════════════════════════════════════════════ */
-  --color-brand-gold: #A67D54;
-  /* Bronze / Gold Premium */
-  --color-brand-beige: #D1C5B9;
-  /* Elegant Beige */
-  --color-brand-brown: #2D231E;
-  /* Deep luxury brown */
+    --color-brand-gold: #A67D54;
+    /* Bronze / Gold Premium */
+    --color-brand-beige: #D1C5B9;
+    /* Elegant Beige */
+    --color-brand-brown: #2D231E;
+    /* Deep luxury brown */
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      GOLD / BRONZE SCALE
      ══════════════════════════════════════════════ */
-  --color-gold-900: #2E2215;
-  --color-gold-800: #473522;
-  --color-gold-700: #85623E;
-  --color-gold-600: #A67D54;
-  /* ★ BRAND GOLD — base */
-  --color-gold-500: #C29B71;
-  --color-gold-400: #D8B790;
-  --color-gold-300: #EDCCAB;
-  --color-gold-200: #F6DFCA;
-  --color-gold-100: #FCF4EB;
-  --color-gold-50: #FFFBF7;
+    --color-gold-900: #2E2215;
+    --color-gold-800: #473522;
+    --color-gold-700: #85623E;
+    --color-gold-600: #A67D54;
+    /* ★ BRAND GOLD — base */
+    --color-gold-500: #C29B71;
+    --color-gold-400: #D8B790;
+    --color-gold-300: #EDCCAB;
+    --color-gold-200: #F6DFCA;
+    --color-gold-100: #FCF4EB;
+    --color-gold-50: #FFFBF7;
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      PREMIUM ACCENT COLORS
      ══════════════════════════════════════════════ */
-  --color-champagne: #F7E7CE;
-  --color-bronze: #CD7F32;
-  --color-warm-grey: #A89C94;
-  --color-deep-charcoal: #1A1614;
+    --color-champagne: #F7E7CE;
+    --color-bronze: #CD7F32;
+    --color-warm-grey: #A89C94;
+    --color-deep-charcoal: #1A1614;
 
-  /* Gradientes de Luxo */
-  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #AA8B56 100%);
-  --gradient-shimmer: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+    /* Gradientes de Luxo */
+    --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #AA8B56 100%);
+    --gradient-shimmer: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      BEIGE / SAND SCALE (Substituiu o Rose)
      ══════════════════════════════════════════════ */
-  --color-beige-900: #4A4036;
-  --color-beige-800: #6B5E52;
-  --color-beige-700: #8E7F70;
-  --color-beige-600: #A99B8E;
-  --color-beige-500: #D1C5B9;
-  /* ★ BRAND BEIGE — base */
-  --color-beige-400: #E6DDD4;
-  --color-beige-300: #F0E8E1;
-  --color-beige-200: #F7F1EC;
-  --color-beige-100: #FCFAF8;
-  --color-beige-50: #FFFEFD;
+    --color-beige-900: #4A4036;
+    --color-beige-800: #6B5E52;
+    --color-beige-700: #8E7F70;
+    --color-beige-600: #A99B8E;
+    --color-beige-500: #D1C5B9;
+    /* ★ BRAND BEIGE — base */
+    --color-beige-400: #E6DDD4;
+    --color-beige-300: #F0E8E1;
+    --color-beige-200: #F7F1EC;
+    --color-beige-100: #FCFAF8;
+    --color-beige-50: #FFFEFD;
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      SEMANTIC COLORS
      ══════════════════════════════════════════════ */
-  --color-primary: var(--color-gold-600);
-  --color-primary-hover: var(--color-gold-700);
-  --color-primary-active: var(--color-gold-800);
-  --color-secondary: var(--color-beige-500);
-  --color-secondary-hover: var(--color-beige-600);
-  --color-secondary-active: var(--color-beige-700);
+    --color-primary: var(--color-gold-600);
+    --color-primary-hover: var(--color-gold-700);
+    --color-primary-active: var(--color-gold-800);
+    --color-secondary: var(--color-beige-500);
+    --color-secondary-hover: var(--color-beige-600);
+    --color-secondary-active: var(--color-beige-700);
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      NEUTRALS (luxurious warm browns, pure black is forbidden)
      ══════════════════════════════════════════════ */
-  --color-neutral-900: #1B1714;
-  /* Pure dark */
-  --color-neutral-800: #2D2622;
-  /* Primary text */
-  --color-neutral-700: #4A403A;
-  /* Headings secundários */
-  --color-neutral-600: #61564F;
-  /* Text secondary strong */
-  --color-neutral-500: #786C65;
-  /* Text secondary */
-  --color-neutral-400: #A2968E;
-  /* Text tertiary / captions */
-  --color-neutral-300: #CDC2BB;
-  /* Borders fortes */
-  --color-neutral-200: #E4DCD5;
-  /* Borders suaves */
-  --color-neutral-100: #F2EBE5;
-  /* Backgrounds suaves */
-  --color-neutral-50: #FDFBF9;
-  /* ★ PRIMARY BACKGROUND */
+    --color-neutral-900: #1B1714;
+    /* Pure dark */
+    --color-neutral-800: #2D2622;
+    /* Primary text */
+    --color-neutral-700: #4A403A;
+    /* Headings secundários */
+    --color-neutral-600: #61564F;
+    /* Text secondary strong */
+    --color-neutral-500: #786C65;
+    /* Text secondary */
+    --color-neutral-400: #A2968E;
+    /* Text tertiary / captions */
+    --color-neutral-300: #CDC2BB;
+    /* Borders fortes */
+    --color-neutral-200: #E4DCD5;
+    /* Borders suaves */
+    --color-neutral-100: #F2EBE5;
+    /* Backgrounds suaves */
+    --color-neutral-50: #FDFBF9;
+    /* ★ PRIMARY BACKGROUND */
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      BACKGROUNDS
      ══════════════════════════════════════════════ */
-  --bg-primary: #FDFBF9;
-  /* Off-white quente, ultra clene */
-  --bg-secondary: #F6F2EF;
-  /* Bege acinzentado ultra luxo */
-  --bg-accent: #EFE9E2;
-  /* Fundo de destaque sand */
-  --bg-gold: #A67D54;
-  /* Fundos dourados fortes */
-  --bg-dark: #2D231E;
-  /* Footer premium espresso */
+    --bg-primary: #FDFBF9;
+    /* Off-white quente, ultra clene */
+    --bg-secondary: #F6F2EF;
+    /* Bege acinzentado ultra luxo */
+    --bg-accent: #EFE9E2;
+    /* Fundo de destaque sand */
+    --bg-gold: #A67D54;
+    /* Fundos dourados fortes */
+    --bg-dark: #2D231E;
+    /* Footer premium espresso */
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      TEXT COLORS
      ══════════════════════════════════════════════ */
-  --text-primary: #2D2622;
-  --text-secondary: #61564F;
-  --text-tertiary: #A2968E;
-  --text-on-gold: #FFFFFF;
-  --text-on-dark: #FDFBF9;
-  --text-link: #A67D54;
-  --text-link-hover: #85623E;
+    --text-primary: #2D2622;
+    --text-secondary: #61564F;
+    --text-tertiary: #A2968E;
+    --text-on-gold: #FFFFFF;
+    --text-on-dark: #FDFBF9;
+    --text-link: #A67D54;
+    --text-link-hover: #85623E;
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      DIVIDERS & BORDERS
      ══════════════════════════════════════════════ */
-  --border-default: rgba(166, 125, 84, 0.15);
-  --border-hover: rgba(166, 125, 84, 0.3);
-  --border-active: rgba(166, 125, 84, 0.5);
-  --divider-beige: rgba(209, 197, 185, 0.4);
-  --divider-beige-strong: rgba(209, 197, 185, 0.8);
+    --border-default: rgba(166, 125, 84, 0.15);
+    --border-hover: rgba(166, 125, 84, 0.3);
+    --border-active: rgba(166, 125, 84, 0.5);
+    --divider-beige: rgba(209, 197, 185, 0.4);
+    --divider-beige-strong: rgba(209, 197, 185, 0.8);
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      FUNCTIONAL COLORS
      ══════════════════════════════════════════════ */
-  --color-success: #4A7A59;
-  --color-whatsapp: #25D366;
-  --color-whatsapp-hover: #128C7E;
-  --color-focus-ring: rgba(166, 125, 84, 0.4);
-  --color-overlay: rgba(27, 23, 20, 0.7);
+    --color-success: #4A7A59;
+    --color-whatsapp: #25D366;
+    --color-whatsapp-hover: #128C7E;
+    --color-focus-ring: rgba(166, 125, 84, 0.4);
+    --color-overlay: rgba(27, 23, 20, 0.7);
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      FONT FAMILIES (Premium & Minimalist)
      ══════════════════════════════════════════════ */
-  --font-display: 'Cormorant Garamond', 'Highfield Thin', Georgia, serif;
-  --font-body: 'Montserrat', system-ui, sans-serif;
+    --font-display: 'Cormorant Garamond', 'Highfield Thin', Georgia, serif;
+    --font-body: 'Montserrat', system-ui, sans-serif;
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      TYPE SCALE (High-end Editorial)
      ══════════════════════════════════════════════ */
-  --text-display-size: clamp(2.5rem, 6vw + 1rem, 5rem);
-  --text-display-weight: 300;
-  --text-display-line-height: 1.05;
-  --text-display-letter-spacing: -0.01em;
-  --text-display-transform: none;
+    --text-display-size: clamp(2.5rem, 6vw + 1rem, 5rem);
+    --text-display-weight: 300;
+    --text-display-line-height: 1.05;
+    --text-display-letter-spacing: -0.01em;
+    --text-display-transform: none;
 
-  --text-h1-size: clamp(2.2rem, 4.5vw + 0.5rem, 3.5rem);
-  --text-h1-weight: 300;
-  --text-h1-line-height: 1.1;
-  --text-h1-letter-spacing: -0.01em;
+    --text-h1-size: clamp(2.2rem, 4.5vw + 0.5rem, 3.5rem);
+    --text-h1-weight: 300;
+    --text-h1-line-height: 1.1;
+    --text-h1-letter-spacing: -0.01em;
 
-  --text-h2-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
-  --text-h2-weight: 300;
-  --text-h2-line-height: 1.2;
-  --text-h2-letter-spacing: 0;
+    --text-h2-size: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
+    --text-h2-weight: 300;
+    --text-h2-line-height: 1.2;
+    --text-h2-letter-spacing: 0;
 
-  --text-h3-size: clamp(1.2rem, 1.5vw + 0.25rem, 1.5rem);
-  --text-h3-weight: 500;
-  --text-h3-line-height: 1.3;
-  --text-h3-letter-spacing: 0.02em;
+    --text-h3-size: clamp(1.2rem, 1.5vw + 0.25rem, 1.5rem);
+    --text-h3-weight: 500;
+    --text-h3-line-height: 1.3;
+    --text-h3-letter-spacing: 0.02em;
 
-  --text-h4-size: clamp(1rem, 1.2vw + 0.2rem, 1.25rem);
-  --text-h4-weight: 500;
-  --text-h4-line-height: 1.3;
-  --text-h4-letter-spacing: 0.05em;
-  --text-h4-transform: uppercase;
+    --text-h4-size: clamp(1rem, 1.2vw + 0.2rem, 1.25rem);
+    --text-h4-weight: 500;
+    --text-h4-line-height: 1.3;
+    --text-h4-letter-spacing: 0.05em;
+    --text-h4-transform: uppercase;
 
-  --text-body-size: clamp(0.938rem, 1vw + 0.1rem, 1.05rem);
-  --text-body-weight: 400;
-  --text-body-line-height: 1.8;
+    --text-body-size: clamp(0.938rem, 1vw + 0.1rem, 1.05rem);
+    --text-body-weight: 400;
+    --text-body-line-height: 1.8;
 
-  --text-body-sm-size: clamp(0.813rem, 0.9vw + 0.05rem, 0.875rem);
-  --text-body-sm-weight: 400;
-  --text-body-sm-line-height: 1.6;
+    --text-body-sm-size: clamp(0.813rem, 0.9vw + 0.05rem, 0.875rem);
+    --text-body-sm-weight: 400;
+    --text-body-sm-line-height: 1.6;
 
-  --text-caption-size: 0.75rem;
-  --text-caption-weight: 500;
-  --text-caption-line-height: 1.5;
-  --text-caption-letter-spacing: 0.06em;
-  --text-caption-transform: uppercase;
+    --text-caption-size: 0.75rem;
+    --text-caption-weight: 500;
+    --text-caption-line-height: 1.5;
+    --text-caption-letter-spacing: 0.06em;
+    --text-caption-transform: uppercase;
 
-  --text-overline-size: clamp(0.7rem, 0.8vw, 0.85rem);
-  --text-overline-weight: 600;
-  --text-overline-line-height: 1;
-  --text-overline-letter-spacing: 0.2em;
-  --text-overline-transform: uppercase;
+    --text-overline-size: clamp(0.7rem, 0.8vw, 0.85rem);
+    --text-overline-weight: 600;
+    --text-overline-line-height: 1;
+    --text-overline-letter-spacing: 0.2em;
+    --text-overline-transform: uppercase;
 
-  --text-cta-size: 0.95rem;
-  --text-cta-weight: 600;
-  --text-cta-letter-spacing: 0.08em;
-  --text-cta-transform: uppercase;
+    --text-cta-size: 0.95rem;
+    --text-cta-weight: 600;
+    --text-cta-letter-spacing: 0.08em;
+    --text-cta-transform: uppercase;
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      SPACING SCALE
      ══════════════════════════════════════════════ */
-  --space-0: 0;
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-7: 2rem;
-  --space-8: 2.5rem;
-  --space-9: 3rem;
-  --space-10: 4rem;
-  --space-11: 5rem;
-  --space-12: 6rem;
-  --space-13: 8rem;
-  --space-14: 12rem;
+    --space-0: 0;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-7: 2rem;
+    --space-8: 2.5rem;
+    --space-9: 3rem;
+    --space-10: 4rem;
+    --space-11: 5rem;
+    --space-12: 6rem;
+    --space-13: 8rem;
+    --space-14: 12rem;
 
-  --section-padding-x: clamp(1.25rem, 6vw, 6rem);
-  --section-padding-y: clamp(5rem, 10vw, 10rem);
-  --card-padding: clamp(2rem, 4vw, 3rem);
-  --grid-gap: clamp(1.5rem, 3vw, 2.5rem);
-  --content-max-width: 1280px;
-  --content-narrow: 800px;
-  --navbar-height: 80px;
-  --navbar-height-mobile: 64px;
+    --section-padding-x: clamp(1.25rem, 6vw, 6rem);
+    --section-padding-y: clamp(5rem, 10vw, 10rem);
+    --card-padding: clamp(2rem, 4vw, 3rem);
+    --grid-gap: clamp(1.5rem, 3vw, 2.5rem);
+    --content-max-width: 1280px;
+    --content-narrow: 800px;
+    --navbar-height: 80px;
+    --navbar-height-mobile: 64px;
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      ELEVATION (Extremely subtle and wide)
      ══════════════════════════════════════════════ */
-  --shadow-xs: 0 4px 10px rgba(45, 35, 30, 0.02);
-  --shadow-sm: 0 8px 20px rgba(45, 35, 30, 0.03);
-  --shadow-md: 0 12px 30px rgba(45, 35, 30, 0.04);
-  --shadow-lg: 0 20px 40px rgba(45, 35, 30, 0.05),
-    0 1px 3px rgba(45, 35, 30, 0.02);
-  --shadow-xl: 0 30px 60px rgba(45, 35, 30, 0.07),
-    0 5px 15px rgba(45, 35, 30, 0.03);
-  --shadow-2xl: 0 40px 100px rgba(45, 35, 30, 0.1);
+    --shadow-xs: 0 4px 10px rgba(45, 35, 30, 0.02);
+    --shadow-sm: 0 8px 20px rgba(45, 35, 30, 0.03);
+    --shadow-md: 0 12px 30px rgba(45, 35, 30, 0.04);
+    --shadow-lg: 0 20px 40px rgba(45, 35, 30, 0.05),
+        0 1px 3px rgba(45, 35, 30, 0.02);
+    --shadow-xl: 0 30px 60px rgba(45, 35, 30, 0.07),
+        0 5px 15px rgba(45, 35, 30, 0.03);
+    --shadow-2xl: 0 40px 100px rgba(45, 35, 30, 0.1);
 
-  /* Premium Shadows */
-  --shadow-soft: 0 10px 40px rgba(39, 33, 29, 0.08);
-  --shadow-elevated: 0 20px 60px rgba(39, 33, 29, 0.12);
-  --shadow-floating: 0 30px 80px rgba(39, 33, 29, 0.15);
-  --shadow-glass: 0 20px 60px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    /* Premium Shadows */
+    --shadow-soft: 0 10px 40px rgba(39, 33, 29, 0.08);
+    --shadow-elevated: 0 20px 60px rgba(39, 33, 29, 0.12);
+    --shadow-floating: 0 30px 80px rgba(39, 33, 29, 0.15);
+    --shadow-glass: 0 20px 60px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 
-  /* Blur Effects */
-  --blur-glass: blur(20px) saturate(180%);
-  --blur-backdrop: blur(40px);
+    /* Blur Effects */
+    --blur-glass: blur(20px) saturate(180%);
+    --blur-backdrop: blur(40px);
 
-  --shadow-beige: 0 10px 30px rgba(209, 197, 185, 0.2);
-  --shadow-gold: 0 10px 30px rgba(166, 125, 84, 0.2);
-  --shadow-whatsapp: 0 10px 30px rgba(37, 211, 102, 0.2);
+    --shadow-beige: 0 10px 30px rgba(209, 197, 185, 0.2);
+    --shadow-gold: 0 10px 30px rgba(166, 125, 84, 0.2);
+    --shadow-whatsapp: 0 10px 30px rgba(37, 211, 102, 0.2);
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      BORDER RADIUS (Sharper for ultra luxury, subtle rounding)
      ══════════════════════════════════════════════ */
-  --radius-xs: 2px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-2xl: 20px;
-  --radius-3xl: 24px;
-  --radius-full: 9999px;
+    --radius-xs: 2px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 20px;
+    --radius-3xl: 24px;
+    --radius-full: 9999px;
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      BORDERS
      ══════════════════════════════════════════════ */
-  --border-thin: 1px solid var(--border-default);
-  --border-medium: 1px solid var(--border-hover);
-  --border-accent-top: 1px solid var(--color-gold-400);
-  --border-accent-left: 1px solid var(--color-gold-400);
+    --border-thin: 1px solid var(--border-default);
+    --border-medium: 1px solid var(--border-hover);
+    --border-accent-top: 1px solid var(--color-gold-400);
+    --border-accent-left: 1px solid var(--color-gold-400);
 
-  /* ══════════════════════════════════════════════
+    /* ══════════════════════════════════════════════
      TRANSITIONS
      ══════════════════════════════════════════════ */
-  --transition-fast: 0.2s cubic-bezier(0.2, 0, 0, 1);
-  --transition-base: 0.4s cubic-bezier(0.2, 0, 0, 1);
-  --transition-smooth: 0.6s cubic-bezier(0.25, 1, 0.1, 1);
-  --transition-bounce: 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-  --transition-spring: 1s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: 0.2s cubic-bezier(0.2, 0, 0, 1);
+    --transition-base: 0.4s cubic-bezier(0.2, 0, 0, 1);
+    --transition-smooth: 0.6s cubic-bezier(0.25, 1, 0.1, 1);
+    --transition-bounce: 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-spring: 1s cubic-bezier(0.16, 1, 0.3, 1);
 
-  --duration-fast: 300ms;
-  --duration-base: 600ms;
-  --duration-slow: 900ms;
-  --duration-slower: 1200ms;
-  --duration-slowest: 1800ms;
+    --duration-fast: 300ms;
+    --duration-base: 600ms;
+    --duration-slow: 900ms;
+    --duration-slower: 1200ms;
+    --duration-slowest: 1800ms;
 
-  --z-behind: -1;
-  --z-base: 0;
-  --z-dropdown: 100;
-  --z-sticky: 200;
-  --z-navbar: 300;
-  --z-overlay: 400;
-  --z-modal: 500;
-  --z-floating-cta: 600;
-  --z-tooltip: 700;
-  --z-toast: 800;
-  --z-max: 9999;
+    --z-behind: -1;
+    --z-base: 0;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-navbar: 300;
+    --z-overlay: 400;
+    --z-modal: 500;
+    --z-floating-cta: 600;
+    --z-tooltip: 700;
+    --z-toast: 800;
+    --z-max: 9999;
 }
 
 /* === css/reset.css === */
@@ -399,6 +399,7 @@ body {
     line-height: var(--text-body-line-height);
     position: relative;
     overflow-x: hidden;
+    overscroll-behavior-y: none;
 }
 
 /* Typography Base */
@@ -750,54 +751,165 @@ body::after {
     text-align: center;
     line-height: 1.6;
 }
+
 /* Spacing Helpers */
-.mt-sm { margin-top: var(--s-sm); }
-.mt-md { margin-top: var(--s-md); }
-.mt-lg { margin-top: var(--s-lg); }
-.mb-sm { margin-bottom: var(--s-sm); }
-.mb-md { margin-bottom: var(--s-md); }
-.mb-lg { margin-bottom: var(--s-lg); }
-.pb-none { padding-bottom: 0 !important; }
+.mt-sm {
+    margin-top: var(--s-sm);
+}
+
+.mt-md {
+    margin-top: var(--s-md);
+}
+
+.mt-lg {
+    margin-top: var(--s-lg);
+}
+
+.mb-sm {
+    margin-bottom: var(--s-sm);
+}
+
+.mb-md {
+    margin-bottom: var(--s-md);
+}
+
+.mb-lg {
+    margin-bottom: var(--s-lg);
+}
+
+.pb-none {
+    padding-bottom: 0 !important;
+}
 
 /* Flex Helpers */
-.flex-wrap { display: flex; flex-wrap: wrap; }
-.flex-center-gap { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
-.flex-between-end { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem; }
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-center-gap {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.flex-between-end {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
 
 /* Grid Helpers */
-.max-w-xs { max-width: 300px; }
-.max-w-sm { max-width: 400px; }
-.max-w-md { max-width: 600px; }
-.max-w-lg { max-width: 800px; }
+.max-w-xs {
+    max-width: 300px;
+}
+
+.max-w-sm {
+    max-width: 400px;
+}
+
+.max-w-md {
+    max-width: 600px;
+}
+
+.max-w-lg {
+    max-width: 800px;
+}
 
 /* Colors */
-.text-white { color: var(--c-white); }
-.text-gold { color: var(--c-gold); }
-.text-taupe { color: var(--c-taupe); }
-.text-espresso { color: var(--c-espresso); }
-.text-espresso-light { color: var(--c-espresso-light); }
-.text-white-70 { color: rgba(255,255,255,0.7); }
-.text-white-60 { color: rgba(255,255,255,0.6); }
+.text-white {
+    color: var(--c-white);
+}
+
+.text-gold {
+    color: var(--c-gold);
+}
+
+.text-taupe {
+    color: var(--c-taupe);
+}
+
+.text-espresso {
+    color: var(--c-espresso);
+}
+
+.text-espresso-light {
+    color: var(--c-espresso-light);
+}
+
+.text-white-70 {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.text-white-60 {
+    color: rgba(255, 255, 255, 0.6);
+}
 
 /* Typography */
-.text-caption { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
-.text-lg { font-size: 1.1rem; }
-.text-xl { font-size: 1.2rem; }
-.font-medium { font-weight: 500; }
-.lh-relaxed { line-height: 1.6; }
+.text-caption {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.text-lg {
+    font-size: 1.1rem;
+}
+
+.text-xl {
+    font-size: 1.2rem;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.lh-relaxed {
+    line-height: 1.6;
+}
 
 /* Specific Overrides */
-.logo-responsive { height: 38px; width: auto; }
-.border-top-ghost { border-top: 1px solid rgba(255,255,255,0.2); }
-.border-bottom-ghost { border-bottom: 1px solid rgba(255,255,255,0.1); }
-.border-left-sand { border-left: 1px solid var(--c-sand); }
-.bg-white { background-color: var(--c-white); }
-.border-none { border: none !important; }
-.inline-block { display: inline-block; }
-.map-filter { border: 0; filter: grayscale(100%) invert(92%) contrast(83%); }
+.logo-responsive {
+    height: 38px;
+    width: auto;
+}
+
+.border-top-ghost {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.border-bottom-ghost {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.border-left-sand {
+    border-left: 1px solid var(--c-sand);
+}
+
+.bg-white {
+    background-color: var(--c-white);
+}
+
+.border-none {
+    border: none !important;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.map-filter {
+    border: 0;
+    filter: grayscale(100%) invert(92%) contrast(83%);
+}
 
 /* Button modifiers */
-.btn-padded { padding: 0.8rem 1.5rem; }
+.btn-padded {
+    padding: 0.8rem 1.5rem;
+}
 
 
 /* === components/a11y.css === */
@@ -2295,6 +2407,7 @@ body::before {
     margin-bottom: var(--space-6);
     background: linear-gradient(180deg, #FFFFFF 0%, #D8D2CB 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -3096,4 +3209,3 @@ body::before {
         transition: none;
     }
 }
-

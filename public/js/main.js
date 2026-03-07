@@ -307,22 +307,9 @@ window.App.Navbar = {
         // Scroll event with throttle for performance
         window.addEventListener('scroll', window.App.Utils.throttle(this.handleScroll.bind(this), 100));
 
-        // Mobile menu toggle - support both click and touch events
+        // Mobile menu toggle - use robust click handler
         if (this.burgerBtn && this.overlayMenu) {
-            // Prevent double-firing on touch devices
-            let touchHandled = false;
-
-            this.burgerBtn.addEventListener('touchstart', (e) => {
-                e.preventDefault();
-                touchHandled = true;
-                this.toggleMenu();
-            }, { passive: false });
-
             this.burgerBtn.addEventListener('click', (e) => {
-                if (touchHandled) {
-                    touchHandled = false;
-                    return;
-                }
                 e.preventDefault();
                 this.toggleMenu();
             });
