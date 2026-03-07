@@ -377,7 +377,6 @@ window.App.Navbar = {
     },
 
     bindEvents() {
-        // Scroll event with throttle for performance
         let ticking = false;
         window.addEventListener('scroll', () => {
             if (!ticking) {
@@ -426,13 +425,8 @@ window.App.Navbar = {
     },
 
     toggleMenu() {
-        const isOpening = !this.overlayMenu.classList.contains('is-open');
-
         this.burgerBtn.classList.toggle('is-active');
         this.overlayMenu.classList.toggle('is-open');
-
-        // Update aria-expanded
-        this.burgerBtn.setAttribute('aria-expanded', isOpening ? 'true' : 'false');
 
         // Prevent body scroll when menu is open
         if (this.overlayMenu.classList.contains('is-open')) {
@@ -525,7 +519,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.style.overflow = 'hidden'; // prevent scrolling
 
-    // Animate out after everything loads or max 800ms timeout to preserve mobile LCP
+    // Animate out after everything loads or min 2000ms to ensure visibility
     const hidePreloader = () => {
         if (!preloader.classList.contains('is-hidden')) {
             setTimeout(() => {
@@ -535,14 +529,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 setTimeout(() => {
                     preloader.remove();
                 }, 600); // 600ms CSS transition
-            }, 100); // 100ms guaranteed look at the logo
+            }, 2000); // 2 seconds guaranteed visibility
         }
     };
 
     window.addEventListener('load', hidePreloader);
 
-    // Fallback if load is slow (very crucial for simulated 4G mobile scoring)
-    setTimeout(hidePreloader, 800);
+    // Fallback if load is slow
+    setTimeout(hidePreloader, 2600);
 });
 
 
