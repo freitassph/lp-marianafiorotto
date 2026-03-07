@@ -307,9 +307,31 @@ window.App.Navbar = {
         // Scroll event with throttle for performance
         window.addEventListener('scroll', window.App.Utils.throttle(this.handleScroll.bind(this), 100));
 
-        // Mobile menu toggle
+        // Mobile menu toggle - support both click and touch events
         if (this.burgerBtn && this.overlayMenu) {
-            this.burgerBtn.addEventListener('click', () => this.toggleMenu());
+            // Prevent double-firing on touch devices
+            let touchHandled = false;
+
+            this.burgerBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                touchHandled = true;
+                this.toggleMenu();
+            }, { passive: false });
+
+            this.burgerBtn.addEventListener('click', (e) => {
+                if (touchHandled) {
+                    touchHandled = false;
+                    return;
+                }
+                e.preventDefault();
+                this.toggleMenu();
+            });
+
+            // Update aria-expanded for accessibility
+            this.burgerBtn.addEventListener('click', () => {
+                const isExpanded = this.overlayMenu.classList.contains('is-open');
+                this.burgerBtn.setAttribute('aria-expanded', isExpanded);
+            });
         }
 
         // Close mobile menu on link click
@@ -335,8 +357,13 @@ window.App.Navbar = {
     },
 
     toggleMenu() {
+        const isOpening = !this.overlayMenu.classList.contains('is-open');
+
         this.burgerBtn.classList.toggle('is-active');
         this.overlayMenu.classList.toggle('is-open');
+
+        // Update aria-expanded
+        this.burgerBtn.setAttribute('aria-expanded', isOpening ? 'true' : 'false');
 
         // Prevent body scroll when menu is open
         if (this.overlayMenu.classList.contains('is-open')) {

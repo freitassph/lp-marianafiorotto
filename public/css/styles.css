@@ -475,8 +475,18 @@ button {
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 0.5rem;
     z-index: 1001;
+    position: relative;
+    /* Increase touch target area for mobile */
+    min-width: 44px;
+    min-height: 44px;
+    /* Ensure it's always clickable */
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+    /* Remove iOS tap highlight */
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .navbar__burger span {
@@ -487,6 +497,8 @@ button {
     transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
     position: relative;
     transform-origin: 1px;
+    pointer-events: none;
+    /* Prevent spans from blocking click events */
 }
 
 .navbar__burger.is-active span:first-child {

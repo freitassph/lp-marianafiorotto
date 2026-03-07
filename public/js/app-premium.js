@@ -377,6 +377,7 @@ window.App.Navbar = {
     },
 
     bindEvents() {
+        // Scroll event with throttle for performance
         let ticking = false;
         window.addEventListener('scroll', () => {
             if (!ticking) {
@@ -387,6 +388,44 @@ window.App.Navbar = {
                 ticking = true;
             }
         });
+
+        // Mobile menu toggle - support both click and touch events
+        if (this.burgerBtn && this.overlayMenu) {
+            // Prevent double-firing on touch devices
+            let touchHandled = false;
+
+            this.burgerBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                touchHandled = true;
+                this.toggleMenu();
+            }, { passive: false });
+
+            this.burgerBtn.addEventListener('click', (e) => {
+                if (touchHandled) {
+                    touchHandled = false;
+                    return;
+                }
+                e.preventDefault();
+                this.toggleMenu();
+            });
+
+            // Update aria-expanded for accessibility
+            this.burgerBtn.addEventListener('click', () => {
+                const isExpanded = this.overlayMenu.classList.contains('is-open');
+                this.burgerBtn.setAttribute('aria-expanded', isExpanded);
+            });
+        }
+
+        // Close mobile menu on link click
+        if (this.mobileLinks) {
+            this.mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (this.overlayMenu.classList.contains('is-open')) {
+                        this.toggleMenu();
+                    }
+                });
+            });
+        }
     },
 
     handleScroll() {
@@ -400,8 +439,13 @@ window.App.Navbar = {
     },
 
     toggleMenu() {
+        const isOpening = !this.overlayMenu.classList.contains('is-open');
+
         this.burgerBtn.classList.toggle('is-active');
         this.overlayMenu.classList.toggle('is-open');
+
+        // Update aria-expanded
+        this.burgerBtn.setAttribute('aria-expanded', isOpening ? 'true' : 'false');
 
         // Prevent body scroll when menu is open
         if (this.overlayMenu.classList.contains('is-open')) {
