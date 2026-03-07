@@ -361,18 +361,21 @@ button {
     left: 0;
     right: 0;
     height: var(--nav-h);
-    background-color: rgba(250, 249, 246, 0.9);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     z-index: 1000;
-    border-bottom: 1px solid rgba(179, 154, 114, 0.15);
-    transition: height 0.4s var(--ease), background-color 0.4s var(--ease);
+    border-bottom: 1px solid transparent;
+    transition: height 0.4s var(--ease), background-color 0.4s var(--ease), backdrop-filter 0.4s var(--ease), border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }
 
 .header.is-scrolled,
 .header.navbar--scrolled {
     height: 60px;
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: rgba(250, 249, 246, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(179, 154, 114, 0.15);
     box-shadow: var(--shadow-soft);
 }
 
@@ -392,7 +395,7 @@ button {
     display: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
     .header__nav {
         display: flex;
         gap: 3.5rem;
@@ -440,7 +443,7 @@ button {
     display: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
     .header__action.btn--nav {
         display: inline-block;
         border: 1px solid var(--c-gold);
@@ -602,7 +605,7 @@ button {
     transition-delay: 0.30s;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
     .navbar__burger {
         display: none;
     }
@@ -623,49 +626,47 @@ button {
     padding-bottom: var(--s-xl);
     position: relative;
     overflow: hidden;
+    background-image: url('/assets/images/hero/imagem-hero.jpeg');
+    background-size: cover;
+    background-position: right 15% top 15%;
+    /* Adicionado um shift para baixo e para o centro para enquadrar rosto melhor */
+    /* FIX: Anchors image top to prevent head chop */
+    background-repeat: no-repeat;
+    background-color: var(--c-paper);
 }
 
-.hero::after {
+.hero::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 60vw;
-    height: 60vw;
-    background: radial-gradient(circle, rgba(179, 154, 114, 0.15) 0%, transparent 70%);
-    transform: translate(-50%, -50%);
-    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-h);
+    /* Limitado exatamente à altura da navbar (90px) */
+    background: linear-gradient(to bottom, rgba(250, 249, 246, 0.98) 0%, rgba(250, 249, 246, 0.40) 80%, transparent 100%);
+    z-index: 1;
     pointer-events: none;
-}
-
-.hero__grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--s-lg);
-    position: relative;
-    z-index: 10;
 }
 
 .hero__content {
     text-align: center;
+    max-width: 520px;
+    /* Reduced from 600px to avoid text overlapping the doctor's blazer */
+    padding-top: var(--s-md);
+    /* Dá um respiro adicional em relação a navbar no topo */
+    position: relative;
+    z-index: 2;
 }
 
 .hero__content .flex-center-gap {
     justify-content: center;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
     .hero {
         padding-top: var(--nav-h);
         padding-bottom: 0;
         min-height: 100vh;
-    }
-
-    .hero__grid {
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        align-items: center;
-        gap: 4rem;
     }
 
     .hero__content {
@@ -676,28 +677,90 @@ button {
     .hero__content .flex-center-gap {
         justify-content: flex-start;
     }
+}
 
-    .hero__image-shell {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        min-height: 60vh;
-        max-height: 75vh;
-        aspect-ratio: auto;
-        border-radius: 4px;
-        box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05);
+@media (max-width: 767px) {
+    .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: calc(var(--nav-h) + 1rem);
+        padding-bottom: 4rem;
+        background-image: none !important;
+        /* Esconde a foto da médica no topo do mobile para elegância tipográfica pura */
+        /* Efeito de luz editorial suave no topo do site */
+        background: radial-gradient(circle at 50% 10%, #FFFFFF 0%, var(--c-paper) 70%);
+        min-height: 90vh;
+        /* Ajuste para não forçar tanta tela e revelar os números logo abaixo */
+        border-bottom: 1px solid rgba(157, 143, 128, 0.15);
+        /* Linha divisória bem sútil cor de taupe */
     }
 
-    .hero__image-shell::after {
-        content: '';
-        position: absolute;
-        bottom: -15px;
-        left: -15px;
+    .hero::before {
+        display: none;
+        /* Sem necessidade de sombras ou gradientes de integração da foto antiga */
+    }
+
+    .hero__content {
+        position: relative;
+        background: transparent;
+        /* Removemos o falso "cartão" sólido e suas margens voadoras */
+        padding: 0 1.5rem;
+        border-radius: 0;
+        margin: 0;
         width: 100%;
-        height: 100%;
-        border-bottom: 2px solid var(--c-gold);
-        border-left: 2px solid var(--c-gold);
-        z-index: -1;
+        max-width: 100%;
+        box-shadow: none;
+        /* Sem sombras artificiais, o foco é o texto puro e limpo */
+        text-align: center;
+        z-index: 2;
+    }
+
+    /* Ajustes Finos de Alinhamento Tipográfico pro Luxo no Mobile */
+    .hero__title {
+        font-size: clamp(2.5rem, 9vw, 3rem);
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+    }
+
+    .hero__subtitle {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--c-espresso-light);
+        margin-bottom: 2.5rem;
+        padding: 0 0.5rem;
+        /* Respiro gentil nas laterais pra não grudar no vidro do celular */
+    }
+
+    .hero__content .flex-center-gap {
+        flex-direction: column;
+        /* Empilha o botão VIP e o texto de endereço para ficar um totem majestoso */
+        gap: 1.25rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+
+    /* Atualizado breakpoint para o iPad Pro de 1199px */
+    .hero {
+        align-items: flex-end;
+        background-position: right 20% top 15%;
+        padding-top: 55svh;
+        padding-bottom: 3rem;
+    }
+
+    .hero__content {
+        background: rgba(250, 249, 246, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 3rem;
+        border-radius: 24px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 640px;
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.1);
+        text-align: center;
     }
 }
 
@@ -755,32 +818,7 @@ button {
     animation: fadeInUpBlur 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.3s both;
 }
 
-.hero__image-shell {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4/5;
-    max-height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.25);
-    background-color: var(--c-sand);
-}
 
-/* Organic shadow vignette - Removido a pedido do usuário */
-.hero__image-shell::before {
-    display: none;
-}
-
-.hero__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    animation: scaleInSoft 1.5s cubic-bezier(0.19, 1, 0.22, 1) 0.4s both;
-}
 
 .metrics {
     background-color: var(--c-deep-charcoal);
@@ -877,7 +915,6 @@ button {
 
 .about__image-frame {
     position: relative;
-    border-radius: 2px;
     z-index: 1;
 }
 
@@ -890,16 +927,8 @@ button {
 }
 
 .about__image-frame::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    width: 60%;
-    height: 100%;
-    background-color: var(--c-sand);
-    opacity: 0.3;
-    z-index: -1;
-    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+    display: none;
+    /* Removemos linhas deslocadas */
 }
 
 .about__image-frame img {
@@ -907,12 +936,16 @@ button {
     aspect-ratio: 4/5;
     object-fit: cover;
     object-position: center top;
-    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
-    transition: transform 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+    display: block;
+    /* A moldura dourada clássica colada na imagem, sem margens ou deslocamentos */
+    border: 2px solid var(--c-gold);
+    border-radius: 2px;
+    box-shadow: 0 20px 50px -10px rgba(32, 29, 26, 0.15);
+    transition: filter 1s var(--ease), transform 1s var(--ease);
 }
 
 .about__image-frame:hover img {
-    transform: scale(1.02);
+    filter: contrast(1.05) brightness(1.02);
 }
 
 .about__copy {
@@ -1632,7 +1665,7 @@ button {
     display: none;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
     .floating-whatsapp {
         padding: 1rem 1.5rem;
     }

@@ -8,23 +8,37 @@
     display: flex;
     align-items: center;
     padding-top: var(--navbar-height);
-    padding-bottom: var(--space-12);
-    /* Gradient Mesh Premium */
-    background:
-        /* Camada 3: Radial rosado suave no canto superior direito */
-        radial-gradient(ellipse at 85% 15%, rgba(225, 166, 160, 0.08) 0%, transparent 50%),
-        /* Camada 2: Radial dourado suave no canto inferior esquerdo */
-        radial-gradient(ellipse at 10% 90%, rgba(154, 118, 82, 0.06) 0%, transparent 50%),
-        /* Camada 1: Radial creme central */
-        radial-gradient(ellipse at 50% 50%, #FEFCFA 0%, #FBF7F4 100%);
-    background-blend-mode: normal, normal, normal;
+    /* Background Image Integrado */
+    background-image: url('/assets/images/hero/imagem-hero.jpeg');
+    background-size: cover;
+    background-position: right top 15%;
+    /* Adicionado um shift para baixo para não cortar a cabeça */
+    background-repeat: no-repeat;
+    /* Soft fallback color while loading */
+    background-color: var(--bg-primary);
     overflow: hidden;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-height);
+    /* Limitado exatamente à altura da navbar (80px) */
+    background: linear-gradient(to bottom, rgba(253, 251, 249, 0.98) 0%, rgba(253, 251, 249, 0.40) 80%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
 .hero__content {
-    max-width: 600px;
+    max-width: 520px;
+    /* Reduced from 600px to protect legibility */
     position: relative;
     z-index: 2;
+    padding-top: var(--space-8);
+    /* Empurra o conteúdo mais para baixo da navbar para melhor respiro */
 }
 
 .hero__headline {
@@ -76,68 +90,89 @@
     flex-wrap: wrap;
 }
 
-.hero__image-wrapper {
-    position: relative;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    z-index: 1;
-}
 
-.hero__image {
-    max-height: 85vh;
-    object-fit: contain;
-    object-position: bottom center;
-    border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
-    /* Arredonda cantos inferiores se nao for cutout */
-    mask-image: linear-gradient(to bottom, white 80%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, white 80%, transparent 100%);
-}
 
-/* Formas decorativas atras da foto no Desktop */
-.hero__image-bg {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 80%;
-    background: var(--color-gold-50);
-    border-radius: 50% 50% 0 0;
-    z-index: -1;
-    border: 1px solid var(--border-default);
-}
-
-@media (max-width: 1024px) {
+@media (max-width: 767px) {
     .hero {
-        min-height: auto;
-        padding-top: calc(var(--navbar-height-mobile) + var(--space-8));
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: calc(var(--nav-h) + 1rem);
+        padding-bottom: 4rem;
+        background-image: none !important;
+        /* Esconde a foto da médica no topo do mobile para elegância tipográfica pura */
+        /* Efeito de luz editorial suave no topo do site */
+        background: radial-gradient(circle at 50% 10%, #FFFFFF 0%, var(--c-paper) 70%);
+        min-height: 90vh;
+        /* Ajuste para não forçar tanta tela e revelar os números logo abaixo */
+        border-bottom: 1px solid rgba(157, 143, 128, 0.15);
+        /* Linha divisória bem sútil cor de taupe */
     }
 
-    .hero__grid {
-        flex-direction: column;
+    .hero::before {
+        display: none;
+        /* Sem necessidade de sombras ou gradientes de integração da foto antiga */
     }
 
     .hero__content {
-        margin: 0 auto;
+        position: relative;
+        background: transparent;
+        /* Removemos o falso "cartão" sólido e suas margens voadoras */
+        padding: 0 1.5rem;
+        border-radius: 0;
+        margin: 0;
+        width: 100%;
         max-width: 100%;
+        box-shadow: none;
+        /* Sem sombras artificiais, o foco é o texto puro e limpo */
+        text-align: center;
+        z-index: 2;
     }
 
-    .hero__microcopy {
-        margin: 0 auto var(--space-6);
+    /* Ajustes Finos de Alinhamento Tipográfico pro Luxo no Mobile */
+    .hero__title {
+        font-size: clamp(2.5rem, 9vw, 3rem);
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
     }
 
-    .hero__actions {
-        justify-content: center;
+    .hero__subtitle {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--c-espresso-light);
+        margin-bottom: 2.5rem;
+        padding: 0 0.5rem;
+        /* Respiro gentil nas laterais pra não grudar no vidro do celular */
     }
 
-    .hero__image-wrapper {
-        margin-top: var(--space-8);
+    .hero__content .flex-center-gap {
+        flex-direction: column;
+        /* Empilha o botão VIP e o texto de endereço para ficar um totem majestoso */
+        gap: 1.25rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+
+    /* Atualizado breakpoint para o iPad Pro de 1199px */
+    .hero {
+        align-items: flex-end;
+        background-position: right 20% top 15%;
+        padding-top: 55svh;
+        padding-bottom: 3rem;
     }
 
-    .hero__image {
-        max-height: 50vh;
+    .hero__content {
+        background: rgba(250, 249, 246, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 3rem;
+        border-radius: 24px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 640px;
+        box-shadow: 0 24px 50px rgba(0, 0, 0, 0.1);
+        text-align: center;
     }
 }

@@ -16,24 +16,16 @@ window.App.Navbar = {
     },
 
     bindEvents() {
-        // Scroll event with throttle for performance
-        window.addEventListener('scroll', window.App.Utils.throttle(this.handleScroll.bind(this), 100));
-
-        // Mobile menu toggle
-        if (this.burgerBtn && this.overlayMenu) {
-            this.burgerBtn.addEventListener('click', () => this.toggleMenu());
-        }
-
-        // Close mobile menu on link click
-        if (this.mobileLinks) {
-            this.mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (this.overlayMenu.classList.contains('is-open')) {
-                        this.toggleMenu();
-                    }
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    this.handleScroll();
+                    ticking = false;
                 });
-            });
-        }
+                ticking = true;
+            }
+        });
     },
 
     handleScroll() {
