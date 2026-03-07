@@ -449,9 +449,17 @@ window.App.Navbar = {
 
         // Prevent body scroll when menu is open
         if (this.overlayMenu.classList.contains('is-open')) {
+            document.documentElement.classList.add('lenis-stopped');
             document.body.style.overflow = 'hidden';
+            document.body.style.touchAction = 'none'; // Lock scroll on mobile
+            const wppBtn = document.querySelector('.floating-whatsapp');
+            if (wppBtn) wppBtn.style.display = 'none';
         } else {
+            document.documentElement.classList.remove('lenis-stopped');
             document.body.style.overflow = '';
+            document.body.style.touchAction = ''; // Keep scroll
+            const wppBtn = document.querySelector('.floating-whatsapp');
+            if (wppBtn) wppBtn.style.display = '';
         }
     }
 };
