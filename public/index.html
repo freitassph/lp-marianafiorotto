@@ -77,29 +77,21 @@
     <!-- Framework de Layout Quiet Luxury Original -->
     <link rel="stylesheet" href="/css/styles.css">
 
-    <!-- Lenis Smooth Scroll CSS -->
+    <!-- Disabled Lenis Smooth Scroll - Using native smooth scroll instead -->
     <style>
-        html.lenis,
-        html.lenis body {
-            height: auto;
-            width: 100%;
+        html {
+            scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
-        .lenis.lenis-smooth {
-            scroll-behavior: auto !important;
+        body {
+            overflow-x: hidden;
+            overscroll-behavior: none;
         }
 
-        .lenis.lenis-smooth [data-lenis-prevent] {
+        /* Prevent modal scroll issues */
+        [data-lenis-prevent] {
             overscroll-behavior: contain;
-        }
-
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-
-        .lenis.lenis-smooth iframe {
-            pointer-events: none;
         }
     </style>
 </head>
@@ -1282,7 +1274,7 @@
             });
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js" defer></script>
+    <!-- Lenis removed - using native smooth scroll -->
     <script src="/js/app-premium.js" defer></script>
 </body>
 

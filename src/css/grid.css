@@ -115,6 +115,9 @@
     max-width: var(--content-max-width);
     margin: 0 auto;
     width: 100%;
+    padding-left: var(--section-padding-x);
+    padding-right: var(--section-padding-x);
+    box-sizing: border-box;
 }
 
 .container--narrow {

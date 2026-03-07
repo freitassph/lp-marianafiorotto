@@ -5,6 +5,8 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: var(--navbar-height);
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -16,7 +18,9 @@ body {
     line-height: var(--text-body-line-height);
     position: relative;
     overflow-x: hidden;
-    overscroll-behavior-y: none;
+    overscroll-behavior: none;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* Typography Base */
