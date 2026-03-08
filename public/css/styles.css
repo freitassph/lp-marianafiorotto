@@ -1367,12 +1367,6 @@ button {
     transform: translateX(10px);
 }
 
-/* Reset styles when accordion is closed */
-.acc-item:not([open]) .acc-title {
-    color: var(--c-espresso);
-    transform: translateX(0);
-}
-
 .acc-title::-webkit-details-marker {
     display: none;
 }
