@@ -10,12 +10,11 @@
     padding-top: var(--navbar-height);
     /* Background Image Integrado */
     background-image: url('/assets/images/hero/imagem-hero.jpeg');
-    background-size: cover;
-    background-position: right top 15%;
-    /* Adicionado um shift para baixo para não cortar a cabeça */
+    background-size: auto 90%; /* Força a imagem a ser 10% menor na vertical para dar respiro em cima */
+    background-position: right bottom; /* Ancorada no chão, empurrando a cabeça dela para baixo da Navbar */
     background-repeat: no-repeat;
-    /* Soft fallback color while loading */
-    background-color: var(--bg-primary);
+    /* Continuidade perfeita do fade para telas ultrawide e preenchimento superior */
+    background-color: var(--bg-primary, #fcfcfc); 
     overflow: hidden;
 }
 
