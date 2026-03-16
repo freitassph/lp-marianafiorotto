@@ -34,7 +34,7 @@
         rgba(253, 251, 249, 0.98) 35%, 
         rgba(253, 251, 249, 0.85) 60%, 
         rgba(253, 251, 249, 0.35) 80%, 
-        transparent 100%
+        rgba(253, 251, 249, 0) 100%
     );
     z-index: 1;
     pointer-events: none;
