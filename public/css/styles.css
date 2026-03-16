@@ -661,9 +661,15 @@ button {
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--nav-h);
-    /* Limitado exatamente à altura da navbar (90px) */
-    background: linear-gradient(to bottom, rgba(250, 249, 246, 0.98) 0%, rgba(250, 249, 246, 0.40) 80%, transparent 100%);
+    height: 100px;
+    /* Névoa sutil — não pesada */
+    background: linear-gradient(
+        to bottom, 
+        rgba(250, 249, 246, 0.95) 0%, 
+        rgba(250, 249, 246, 0.75) 50%, 
+        rgba(250, 249, 246, 0.30) 80%, 
+        rgba(250, 249, 246, 0) 100%
+    );
     z-index: 1;
     pointer-events: none;
 }
