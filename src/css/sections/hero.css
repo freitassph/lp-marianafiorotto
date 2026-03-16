@@ -27,15 +27,15 @@
     left: 0;
     width: 100%;
     height: 160px; /* Leve aumento para fade mais longo */
-    /* Mix: radial no topo direito + linear vertical forte que cobre toda a navbar (80px) */
-    background: 
-        radial-gradient(ellipse at top right, rgba(253, 251, 249, 1) 0%, rgba(253, 251, 249, 0) 70%),
-        linear-gradient(to bottom, 
-            rgba(253, 251, 249, 1) 0%, 
-            rgba(253, 251, 249, 0.95) 60%, 
-            rgba(253, 251, 249, 0.50) 85%, 
-            rgba(253, 251, 249, 0) 100%
-        );
+    /* Fumaçado suave tipo "nuvem" que cobre a navbar com alta densidade (98% a 85%) mas mantem um degradê elegante */
+    background: linear-gradient(
+        to bottom, 
+        rgba(253, 251, 249, 1) 0%, 
+        rgba(253, 251, 249, 0.98) 35%, 
+        rgba(253, 251, 249, 0.85) 60%, 
+        rgba(253, 251, 249, 0.35) 80%, 
+        transparent 100%
+    );
     z-index: 1;
     pointer-events: none;
 }
